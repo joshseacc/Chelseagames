@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 中文閱讀與思維終極魔法學園 🏰</title>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', 'Microsoft JhengHei', sans-serif;
+            background-color: #FFF9F0;
+            color: #5D4037;
+            background-image: radial-gradient(#FFE0B2 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .tab-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .tab-btn.active {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-width: 3px;
+        }
+
+        /* 顏色主題 */
+        .theme-blue { background-color: #64B5F6; border-color: #42A5F5; color: white; }
+        .theme-orange { background-color: #FF8A65; border-color: #FF7043; color: white; }
+        .theme-purple { background-color: #BA68C8; border-color: #AB47BC; color: white; }
+        .theme-green { background-color: #81C784; border-color: #66BB6A; color: white; }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.08);
+            border: 3px solid #FFE0B2;
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+
+        /* 破題攻略樣式 */
+        .step-badge {
+            background-color: #FFCC80;
+            color: #5D4037;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .keyword-tag {
+            background-color: #E1F5FE;
+            color: #0277BD;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0 5px 5px 0;
+            border: 1px solid #B3E5FC;
+        }
+
+        /* 魔法卡片樣式 */
+        .magic-card {
+            background-color: #F3E5F5;
+            border: 2px dashed #CE93D8;
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .magic-icon {
+            font-size: 2.5rem;
+            position: absolute;
+            top: -25px;
+            right: -10px;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 3px solid #E1BEE7;
+        }
+
+        /* 測驗樣式優化 */
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background: white;
+        }
+        .quiz-option:hover {
+            background-color: #FFF8E1;
+            border-color: #FFB74D;
+        }
+        .quiz-option.correct {
+            background-color: #E8F5E9 !important;
+            border-color: #66BB6A !important;
+        }
+        .quiz-option.wrong {
+            background-color: #FFEBEE !important;
+            border-color: #EF5350 !important;
+        }
+        .explanation-box {
+            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: rgba(255,255,255,0.8);
+            border-top: 1px dashed #ccc;
+            font-size: 0.95rem;
+            color: #555;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* 家長筆記樣式 */
+        .strategy-item {
+            margin-bottom: 15px;
+            border-left: 4px solid #FFAB91;
+            padding-left: 10px;
+        }
+
+        .hidden-content { display: none; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- 標題區 -->
+    <header class="text-center mb-10 animate-fade-in">
+        <div class="inline-block p-4 bg-white rounded-full shadow-lg border-4 border-orange-200 mb-4 transform hover:rotate-12 transition duration-300">
+            <span class="text-5xl">🏰</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold text-orange-600 mb-3 tracking-wide drop-shadow-sm">P3 中文閱讀與思維魔法學園</h1>
+        <div class="flex justify-center gap-2">
+             <span class="px-4 py-1 bg-white rounded-full text-sm font-bold text-blue-500 shadow-sm border border-blue-100">📚 閱讀策略</span>
+             <span class="px-4 py-1 bg-white rounded-full text-sm font-bold text-green-500 shadow-sm border border-green-100">🧠 思維訓練</span>
+        </div>
+    </header>
+
+    <!-- Tab 導航 -->
+    <div class="sticky top-2 z-50 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg max-w-5xl mx-auto mb-10 flex flex-wrap justify-center gap-3 border border-orange-100">
+        <button onclick="switchTab('guide')" class="tab-btn active theme-blue px-5 py-2 rounded-xl text-lg font-bold border-2">
+            🚀 終極破題攻略
+        </button>
+        <button onclick="switchTab('mom')" class="tab-btn theme-orange px-5 py-2 rounded-xl text-lg font-bold border-2 bg-white text-orange-500 hover:bg-orange-50">
+            👩🏻‍🏫 家長詳細筆記
+        </button>
+        <button onclick="switchTab('daughter')" class="tab-btn theme-purple px-5 py-2 rounded-xl text-lg font-bold border-2 bg-white text-purple-500 hover:bg-purple-50">
+            👧🏻 囡囡的魔法書
+        </button>
+        <button onclick="switchTab('quiz')" class="tab-btn theme-green px-5 py-2 rounded-xl text-lg font-bold border-2 bg-white text-green-500 hover:bg-green-50">
+            📝 小偵探挑戰站
+        </button>
+    </div>
+
+    <!-- 內容區域 -->
+    <main class="max-w-4xl mx-auto">
+
+        <!-- ==========================================
+             Tab 1: 終極破題攻略 (最重要的部分)
+             ========================================== -->
+        <div id="guide-content" class="tab-content animate-fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-blue-600 inline-block border-b-4 border-blue-200 pb-2">🎯 面對題目，用哪一招？</h2>
+                <p class="mt-4 text-gray-600">家長必讀：考試時教囡囡啟動「神反射」！</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- 攻略卡片 -->
+                <div class="card p-6 border-l-8 border-l-blue-400">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">1. 題目問：「請排列以下事件的先後次序」</h3>
+                    <div class="bg-blue-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：時序線 (Index 7)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 找出選項中的關鍵詞，在文章中圈出來。看看誰在前、誰在後。</li>
+                            <li><strong>注意：</strong> 有沒有「倒敘」（回憶以前的事）。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-purple-400">
+                    <h3 class="text-xl font-bold text-purple-700 mb-2">2. 題目問：「這篇文章介紹了哪幾類xxx？它們有什麼分別？」</h3>
+                    <div class="bg-purple-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：層級分類 (Index 6)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 不要只看字，試著在紙上畫一個「樹狀圖」，把大類別和小類別分層寫下來。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-orange-400">
+                    <h3 class="text-xl font-bold text-orange-700 mb-2">3. 題目問：「主角的性格是怎樣的？」</h3>
+                    <div class="bg-orange-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：行為分析法 (Unit 7) + 特點列舉 (Index 2)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 圈出主角做的事（行為）。他這樣做代表他是好人還是壞人？</li>
+                            <li><strong>例子：</strong> 被罵不還口 $\rightarrow$ 溫和。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-green-400">
+                    <h3 class="text-xl font-bold text-green-700 mb-2">4. 題目問：「這兩個東西有什麼不同？」</h3>
+                    <div class="bg-green-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：異同比較 (Index 3)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 畫兩個圈圈（韋恩圖）。中間寫一樣的，兩邊寫不一樣的。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-pink-400">
+                    <h3 class="text-xl font-bold text-pink-700 mb-2">5. 題目問：「你認為結局會怎樣？」</h3>
+                    <div class="bg-pink-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：後果預測 (Index 5)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 公式 = 性格 (他貪心) + 常識 (貪心會沒朋友) $\rightarrow$ 結局。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-teal-400">
+                    <h3 class="text-xl font-bold text-teal-700 mb-2">6. 題目問：「這篇文章主要講什麼？(主旨)」</h3>
+                    <div class="bg-teal-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：列表法 (Unit 5) + 歸納法 (Unit 12) + 六何法 (Index 1)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作 1：</strong> 用 <span class="font-bold text-teal-600">六何法</span> 檢查有沒有漏掉人、時、地、事。</li>
+                            <li><strong>操作 2：</strong> 用 <span class="font-bold text-teal-600">歸納法</span> 把每一段的重點加起來。</li>
+                            <li><strong>技巧：</strong> 選那個「最長、最完整」的選項。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card p-6 border-l-8 border-l-indigo-400">
+                    <h3 class="text-xl font-bold text-indigo-700 mb-2">7. 題目問：「為什麼主角要這樣做？」</h3>
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="mb-2"><strong>✅ 使用策略：行為分析 (Unit 8)</strong></p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li><strong>操作：</strong> 想想他的「目的」是什麼？他在怕什麼？或者他想得到什麼？</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 實戰版攻略 -->
+                <div class="mt-12 text-center">
+                    <h2 class="text-2xl font-bold text-red-600 inline-block border-b-4 border-red-200 pb-2">🔥 實戰版：進階破題</h2>
+                </div>
+
+                <div class="card p-6 border-2 border-red-100">
+                    <h3 class="text-lg font-bold text-red-700 mb-3">題目：「主角有什麼壞習慣？/ 為什麼他最後會失敗？」</h3>
+                    <p class="text-sm bg-red-50 p-2 rounded mb-2">✅ <strong>使用策略：環狀思考 (Index 9)</strong></p>
+                    <p class="text-gray-700 text-sm"><strong>操作：</strong> 找找看他是否 <strong>重複</strong> 做某個動作。 <br><strong>答題句式：</strong> 「因為主角一而再、再而三地（重複的行為），形成惡性循環，導致（後果）。」</p>
+                </div>
+
+                <div class="card p-6 border-2 border-red-100">
+                    <h3 class="text-lg font-bold text-red-700 mb-3">題目：「文中『xxx』比喻什麼？/ 兩者有什麼相似之處？」</h3>
+                    <p class="text-sm bg-red-50 p-2 rounded mb-2">✅ <strong>使用策略：奇妙關係 (Index 10) + 寫作手法 (Theme 1)</strong></p>
+                    <p class="text-gray-700 text-sm"><strong>操作：</strong> 畫兩個圈，找出中間的共同點。<br><strong>題目問：</strong>「這段描寫好在哪裡？」<br><strong>回答：</strong>「運用了比喻手法，生動地寫出了（事物）的（特點），令人有身臨其境的感覺。」</p>
+                </div>
+
+                <div class="card p-6 border-2 border-red-100">
+                    <h3 class="text-lg font-bold text-red-700 mb-3">題目：「文中提到主角成功的因素有哪些？ (多項選擇/長答)」</h3>
+                    <p class="text-sm bg-red-50 p-2 rounded mb-2">✅ <strong>使用策略：全面探究 (Index 11)</strong></p>
+                    <p class="text-gray-700 text-sm"><strong>操作：</strong> 既然問「哪些」，一定不只一個。<br>1. 找 <strong>內在原因</strong>（性格、能力）。<br>2. 找 <strong>外在原因</strong>（別人幫忙、環境好）。<br><strong>檢查：</strong> 有沒有漏掉任何一點？</p>
+                </div>
+
+                <div class="card p-6 border-2 border-red-100">
+                    <h3 class="text-lg font-bold text-red-700 mb-3">題目：「如果是你，你會怎樣解決這個難題？」</h3>
+                    <p class="text-sm bg-red-50 p-2 rounded mb-2">✅ <strong>使用策略：另類思考 (Index 12)</strong></p>
+                    <p class="text-gray-700 text-sm"><strong>操作：</strong> 如果是普通難題，用常識答。如果是「死局」（例如沒帶東西），就要發揮創意。<br><strong>答題句式：</strong> 「我會利用身邊的（物品）來代替（原本的工具），例如……」</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Tab 2: 家長詳細筆記 (完整保留)
+             ========================================== -->
+        <div id="mom-content" class="tab-content hidden-content">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 左欄：長河系列 -->
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-3xl border-4 border-blue-100">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-6">📚 長河系列：閱讀理解實戰</h2>
+                        
+                        <div class="strategy-item">
+                            <strong>【文體與表達】Theme 1：辨析表達方式 (記敘與描寫)</strong><br>
+                            <span class="text-sm text-gray-700"><strong>分辨「記敘」：</strong> 如果段落是用平實簡練的語言，主要在交代人物的身分、經歷，或者事情的發展經過（講故事、講歷史），這就是記敘。<br>
+                            <strong>分辨「描寫」：</strong> 如果段落用了生動的語言、修辭手法（如比喻），主要在畫出人物的樣子、動作，或者景物的狀態（畫畫面、給感覺），這就是描寫。</span>
+                        </div>
+                        
+                        <div class="strategy-item">
+                            <strong>【文體與表達】Theme 2：辨析實用文文體 (書信與電郵)</strong><br>
+                            <span class="text-sm text-gray-700"><strong>分辨「書信」：</strong> 檢查有沒有「祝頌語」（如：祝身體健康）和「日期」。如果有這兩樣，通常是書信。<br>
+                            <strong>分辨「電郵」：</strong> 檢查開頭有沒有「寄件人電郵地址」、「收件人電郵地址」和「主題」。如果有這些，而且通常省略了祝頌語，這就是電郵。</span>
+                        </div>
+
+                        <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 3 & 4：取捨法 (歸納段落大意與特點)</strong><br>
+                            <span class="text-sm text-gray-700"><strong>Unit 3 (段意)：</strong> 區分「詳寫」與「略寫」。捨去鋪墊、對比、襯托。提取具體敘述的核心內容。<br>
+                            <strong>Unit 4 (特點)：</strong> 人物(外在/內在)、事物(大小/顏色/質地)。</span>
+                        </div>
+
+                        <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 5：列表法 / 概念圖</strong><br>
+                            <span class="text-sm text-gray-700">核心口訣：畫圖列點，看清結構。<br>
+                            應付概括全篇內容。畫出結構圖（總-分），選出涵蓋所有段落的答案。</span>
+                        </div>
+
+                         <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 6：體會思想感情 (借助主旨法)</strong><br>
+                            <span class="text-sm text-gray-700">公式：文章主旨 (發生什麼事) + 細節描寫 (風景/動作) = 思想感情。<br>
+                            例如：送別(主旨) + 傷心流淚(細節) = 不捨。</span>
+                        </div>
+
+                        <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 7 & 8：行為分析法</strong><br>
+                            <span class="text-sm text-gray-700"><strong>Unit 7 (性格)：</strong> 找語言、動作、神態。例子：被罵不還口 -> 溫和。<br>
+                            <strong>Unit 8 (原因)：</strong> 找行為背後的目的。例子：關機扮彈琴 -> 怕被發現。</span>
+                        </div>
+
+                        <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 9 & 10：借助段意法</strong><br>
+                            <span class="text-sm text-gray-700"><strong>Unit 9 (文章要點)：</strong> 概括段意 -> 串聯全篇。<br>
+                            <strong>Unit 10 (人物感情)：</strong> 鎖定段落 -> 分析描寫 -> 推斷心情。</span>
+                        </div>
+
+                        <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 11：圖文結合法</strong><br>
+                            <span class="text-sm text-gray-700">核心口訣：邊讀邊想，畫出真相。<br>
+                            <strong>避坑：</strong> 切勿自行加料！文章沒寫的，就算常識是對的，也絕對不能選！</span>
+                        </div>
+
+                         <div class="strategy-item">
+                            <strong>【閱讀策略】Unit 12：歸納法</strong><br>
+                            <span class="text-sm text-gray-700">核心口訣：段落加一加，主旨就係佢。<br>
+                            公式：各段大意 + 作者感受 = 中心思想。</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右欄：樂思系列 -->
+                <div class="space-y-6">
+                    <div class="bg-green-50 p-6 rounded-3xl border-4 border-green-100">
+                        <h2 class="text-2xl font-bold text-green-600 mb-6">🧠 樂思系列：高階思維訓練</h2>
+                        
+                        <div class="strategy-item"><strong>1. 六何法 (5W1H)：</strong>人、時、地、事、因、果。重組故事。</div>
+                        <div class="strategy-item"><strong>2. 特點列舉：</strong>外形、構造、習慣。多角度介紹。</div>
+                        <div class="strategy-item"><strong>3. 異同比較：</strong>韋恩圖。中間寫相同，兩邊寫不同。</div>
+                        <div class="strategy-item"><strong>4. 正反思考：</strong>好的壞的都要諗，全面分析至穩陣（天平）。</div>
+                        <div class="strategy-item"><strong>5. 後果預測：</strong>性格行為加常識，估下結局係點樣。</div>
+                        <div class="strategy-item"><strong>6. 層級分類：</strong>系統化整理資料（樹狀圖：大類->小類）。</div>
+                        <div class="strategy-item"><strong>7. 時序線：</strong>按時間順序列出情節，理解變化。</div>
+                        <div class="strategy-item"><strong>8. 後續發展：</strong>分析行動帶來的影響（即時/短期/長期）。</div>
+                        <div class="strategy-item"><strong>9. 環狀思考：</strong>觀察重複事件，破解惡性循環。</div>
+                        <div class="strategy-item"><strong>10. 奇妙關係：</strong>聯想與比喻（找共同點）。</div>
+                        <div class="strategy-item"><strong>11. 全面探究：</strong>多角度找原因（內在+外在）。</div>
+                        <div class="strategy-item"><strong>12. 另類思考：</strong>跳出框框，創意解難。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Tab 3: 囡囡筆記
+             ========================================== -->
+        <div id="daughter-content" class="tab-content hidden-content">
+            <div class="text-center mb-8">
+                <p class="text-xl text-purple-500 font-bold bg-white inline-block px-8 py-3 rounded-full shadow-md border border-purple-100">
+                    ✨ 歡迎來到魔法道具屋！26 件法寶任你用！ ✨
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 內容同上，保持不變 -->
+                <div class="magic-card"><div class="magic-icon">🎬</div><h4 class="font-bold text-lg mb-1">腦袋電影院</h4><p class="text-sm">睇字要變畫！但記住：導演唔好加戲！</p></div>
+                <div class="magic-card"><div class="magic-icon">📿</div><h4 class="font-bold text-lg mb-1">珍珠頸鏈</h4><p class="text-sm">每一段大意係一粒珍珠。串埋一齊先係頸鏈！</p></div>
+                <div class="magic-card"><div class="magic-icon">🔍</div><h4 class="font-bold text-lg mb-1">性格透視鏡</h4><p class="text-sm">睇行為知性格。被鬧唔出聲 = 溫和。</p></div>
+                <div class="magic-card"><div class="magic-icon">🧠</div><h4 class="font-bold text-lg mb-1">動機解碼器</h4><p class="text-sm">點解咁做？因為驚！因為想得到！</p></div>
+                <div class="magic-card"><div class="magic-icon">⚖️</div><h4 class="font-bold text-lg mb-1">天使魔鬼天平</h4><p class="text-sm">左邊放好處，右邊放壞處，邊邊重？</p></div>
+                <div class="magic-card"><div class="magic-icon">🔮</div><h4 class="font-bold text-lg mb-1">未來水晶球</h4><p class="text-sm">貪心 + 呃人 = 無朋友 (結局預測)。</p></div>
+                <div class="magic-card"><div class="magic-icon">🧩</div><h4 class="font-bold text-lg mb-1">超級拼圖手</h4><p class="text-sm">搵原因要問：「仲有呢？仲有呢？」搵齊所有拼圖！</p></div>
+                <div class="magic-card"><div class="magic-icon">🚂</div><h4 class="font-bold text-lg mb-1">時光小火車</h4><p class="text-sm">將發生嘅事由先到後排好，唔好亂！</p></div>
+                <div class="magic-card"><div class="magic-icon">🌱</div><h4 class="font-bold text-lg mb-1">種子成長記</h4><p class="text-sm">做咗一件事，影響會長大：發芽(即時) -> 長葉(短期) -> 大樹(長期)。</p></div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Tab 4: 小偵探挑戰站 (全新升級版)
+             ========================================== -->
+        <div id="quiz-content" class="tab-content hidden-content">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-yellow-50 p-4 rounded-2xl border-l-4 border-yellow-400 mb-6 text-center">
+                    <p class="font-bold text-yellow-700 text-lg">💡 挑戰規則：點擊選項，看看小偵探的詳細分析！(26 條全)</p>
+                </div>
+                <!-- 題目將由 JS 生成 -->
+                <div id="quiz-container"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            function switchTab(tabName) {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-content'));
+                document.getElementById(tabName + '-content').classList.remove('hidden-content');
+                
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active', 'theme-blue', 'theme-orange', 'theme-purple', 'theme-green');
+                    btn.classList.add('bg-white'); 
+                    
+                    if(btn.innerText.includes('攻略')) btn.classList.add('text-blue-500', 'border-blue-200');
+                    if(btn.innerText.includes('媽媽')) btn.classList.add('text-orange-500', 'border-orange-200');
+                    if(btn.innerText.includes('囡囡')) btn.classList.add('text-purple-500', 'border-purple-200');
+                    if(btn.innerText.includes('挑戰')) btn.classList.add('text-green-500', 'border-green-200');
+                });
+
+                const activeBtn = document.querySelector(`button[onclick*="'${tabName}'"]`);
+                if(activeBtn) {
+                    activeBtn.classList.remove('bg-white', 'text-blue-500', 'text-orange-500', 'text-purple-500', 'text-green-500');
+                    activeBtn.classList.add('active');
+                    
+                    if(tabName === 'guide') activeBtn.classList.add('theme-blue');
+                    if(tabName === 'mom') activeBtn.classList.add('theme-orange');
+                    if(tabName === 'daughter') activeBtn.classList.add('theme-purple');
+                    if(tabName === 'quiz') activeBtn.classList.add('theme-green');
+                }
+
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+
+            // Expose to global scope for onclick handlers
+            window.switchTab = switchTab;
+            
+            window.toggleAnswer = function(element, isCorrect) {
+                const parent = element.parentElement;
+                const explanationBox = element.querySelector('.explanation-box');
+                
+                if (explanationBox.style.display === 'block') {
+                    explanationBox.style.display = 'none';
+                    element.classList.remove('correct', 'wrong');
+                    return;
+                }
+
+                parent.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    const exp = opt.querySelector('.explanation-box');
+                    if(exp) exp.style.display = 'none';
+                });
+
+                if (isCorrect) {
+                    element.classList.add('correct');
+                } else {
+                    element.classList.add('wrong');
+                }
+                explanationBox.style.display = 'block';
+            }
+
+            // 題目數據 (26題精選，涵蓋所有單元)
+            const questions = [
+                // Theme
+                { title: 'Theme 1: 記敘 vs 描寫', passage: '我們到達了博物館，導賞員帶領我們走進展覽廳，並詳細介紹了這些文物的歷史背景。', question: '這段文字主要運用了哪種表達方式？', options: [{t:'A. 描寫', c:false, e:'這不是畫畫面。'}, {t:'B. 記敘', c:true, e:'正確！這是平實地交代事情經過。'}, {t:'C. 說明', c:false, e:'不對。'}, {t:'D. 議論', c:false, e:'不對。'}] },
+                { title: 'Theme 2: 文體辨析', passage: '【格式】寄件人：小明; 收件人：小華; 主題：週末去哪兒？', question: '這篇實用文屬於什麼文體？', options: [{t:'A. 書信', c:false, e:'書信有祝頌語。'}, {t:'B. 通告', c:false, e:'不對。'}, {t:'C. 電郵', c:true, e:'正確！有寄件人、收件人和主題。'}, {t:'D. 日記', c:false, e:'不對。'}] },
+                
+                // Unit 3-6
+                { title: 'Unit 3: 取捨法 (段意)', passage: '為了這次鋼琴比賽，我每天練習兩小時，手指都彈痛了。比賽當天，我深呼吸，流暢地彈奏了一曲，贏得了全場掌聲。', question: '這段文字主要記述了什麼？', options: [{t:'A. 練習時手指很痛', c:false, e:'這是鋪墊(略寫)。'}, {t:'B. 比賽中表現出色', c:true, e:'正確！這是主要內容(詳寫)。'}, {t:'C. 每天練習', c:false, e:'這是鋪墊。'}] },
+                { title: 'Unit 4: 取捨法 (人物)', passage: '小息時，明華看到地上有垃圾，雖然不是他丟的，但他主動撿起來丟進垃圾桶。', question: '這表現了明華什麼特點？', options: [{t:'A. 有公德心', c:true, e:'正確！主動清理垃圾。'}, {t:'B. 愛管閒事', c:false, e:'不對。'}, {t:'C. 動作快', c:false, e:'不對。'}] },
+                { title: 'Unit 5: 列表法', passage: '第一段：蘋果有營養。第二段：橙含維他命C。第三段：香蕉提供能量。第四段：多吃水果身體好。', question: '這篇文章主要說明了什麼？', options: [{t:'A. 橙的好處', c:false, e:'太片面。'}, {t:'B. 多吃不同水果的好處', c:true, e:'正確！涵蓋了所有段落。'}, {t:'C. 蘋果最有營養', c:false, e:'太片面。'}] },
+                { title: 'Unit 6: 借助主旨 (感情)', passage: '（主旨：記述畢業典禮）我緊緊擁抱著老師，看著熟悉的校園，眼淚忍不住流了下來。', question: '作者表達了什麼感情？', options: [{t:'A. 興奮', c:false, e:'流淚不是興奮。'}, {t:'B. 不捨', c:true, e:'正確！分離+流淚 = 不捨。'}, {t:'C. 不滿', c:false, e:'擁抱老師不是不滿。'}] },
+
+                // Unit 7-12
+                { title: 'Unit 7: 行為分析 (性格)', passage: '志強不小心打破了花瓶，他沒有逃跑，而是主動向媽媽認錯。', question: '志強是個怎樣的人？', options: [{t:'A. 誠實勇敢', c:true, e:'正確！做錯事認錯是誠實。'}, {t:'B. 膽小', c:false, e:'他沒有逃跑。'}] },
+                { title: 'Unit 8: 行為分析 (原因)', passage: '一聽到雷聲，妹妹立刻丟下玩具，躲進被窩裡發抖。', question: '妹妹為什麼這樣做？', options: [{t:'A. 想睡覺', c:false, e:'發抖不是睡覺。'}, {t:'B. 害怕打雷', c:true, e:'正確！躲+發抖 = 害怕。'}] },
+                { title: 'Unit 9: 借助段意', passage: '1.貓病了 2.搞義賣 3.籌到錢 4.貓好了', question: '這篇文章主要記述了什麼？', options: [{t:'A. 貓生病', c:false, e:'只有開頭。'}, {t:'B. 救貓的經過和結果', c:true, e:'正確！串聯了全篇。'}] },
+                { title: 'Unit 10: 借助段意 (心情)', passage: '看著被遊客亂丟垃圾的沙灘，志朗氣得滿臉通紅，大聲斥責。', question: '志朗當時的心情是？', options: [{t:'A. 傷心', c:false, e:'大聲斥責不是傷心。'}, {t:'B. 憤怒', c:true, e:'正確！滿臉通紅+斥責 = 憤怒。'}] },
+                { title: 'Unit 11: 圖文結合', passage: '我們去了大棠荔枝園。我們坐了牛車，感覺很新奇。', question: '文中有提及作者做了什麼？', options: [{t:'A. 吃荔枝', c:false, e:'文章沒寫！不能腦補！'}, {t:'B. 坐牛車', c:true, e:'正確！文中有寫。'}] },
+                { title: 'Unit 12: 歸納法', passage: '（段1-3：記述聖誕活動）（段4：這真是難忘的一天，感謝父母。）', question: '文章中心思想是？', options: [{t:'A. 記述聖誕活動', c:false, e:'欠缺感受。'}, {t:'B. 記述活動並抒發感恩之情', c:true, e:'正確！經過+感受。'}] },
+
+                // Index 1-12 (Thinking)
+                { title: 'Index 1: 六何法', passage: '上星期五(時)，樂兒(人)在學校(地)參加了防火講座(事)。', question: '「何地」是？', options: [{t:'A. 上星期五', c:false}, {t:'B. 學校', c:true, e:'正確。'}] },
+                { title: 'Index 2: 特點列舉', passage: '樹熊有圓圓的身體(外形)，肚子有育兒袋(構造)。', question: '文中介紹了樹熊的？', options: [{t:'A. 外形和構造', c:true, e:'正確。'}, {t:'B. 食物', c:false}] },
+                { title: 'Index 3: 異同比較', passage: 'A和B都是紫色，但A無果實，B有。', question: '相同點是？', options: [{t:'A. 果實', c:false}, {t:'B. 顏色', c:true, e:'正確！'}] },
+                { title: 'Index 4: 正反思考', passage: '選班長：雅儀成績好（優點），但太細聲（缺點）。', question: '我們應該？', options: [{t:'A. 只看優點', c:false}, {t:'B. 全面考慮優缺點', c:true, e:'正確。'}] },
+                { title: 'Index 5: 後果預測', passage: '小貓騙了朋友獨吞魚。朋友發現後很生氣。', question: '結局是？', options: [{t:'A. 朋友稱讚牠', c:false}, {t:'B. 小貓失去朋友', c:true, e:'正確！貪心+欺騙=無朋友。'}] },
+                { title: 'Index 6: 層級分類', passage: '肥皂 > 清潔用 > 洗手皂。', question: '洗手皂屬於哪一類？', options: [{t:'A. 清潔用', c:true, e:'正確。'}, {t:'B. 食用', c:false}] },
+                { title: 'Index 7: 時序線', passage: '1.吃自助餐 2.媽媽勸 3.不聽繼續吃 4.肚子痛。', question: '次序是？', options: [{t:'A. 1,2,3,4', c:true, e:'正確。'}, {t:'B. 4,3,2,1', c:false}] },
+                { title: 'Index 8: 後續發展', passage: '小明開始每天運動。', question: '長期影響？', options: [{t:'A. 覺得累(即時)', c:false}, {t:'B. 身體變強壯(長期)', c:true, e:'正確。'}] },
+                { title: 'Index 9: 環狀思考', passage: '小猴子送信，見香蕉停，見水停，天黑都沒送完。', question: '問題是？', options: [{t:'A. 跑得慢', c:false}, {t:'B. 重複被誘惑(惡性循環)', c:true, e:'正確。'}] },
+                { title: 'Index 10: 奇妙關係', passage: '路邊的大樹，像一把綠色的大雨傘。', question: '共同點？', options: [{t:'A. 都有生命', c:false}, {t:'B. 遮蔭擋雨(功能)', c:true, e:'正確。'}] },
+                { title: 'Index 11: 全面探究', passage: '奪冠原因：天份+努力+老師指導。', question: '原因？', options: [{t:'A. 只有天份', c:false}, {t:'B. 天份、努力和老師指導', c:true, e:'正確。'}] },
+                { title: 'Index 12: 另類思考', passage: '沒帶叉子吃蛋糕。', question: '創意解決？', options: [{t:'A. 不吃', c:false}, {t:'B. 用手拿著吃/紙盒摺匙羹', c:true, e:'正確。'}] },
+                // Additional questions to reach 26 total
+                { title: 'Unit 4: 取捨法 (事物)', passage: '這個筆盒外表普通，但功能很多，可以削筆、放很多文具。', question: '筆盒的特點是？', options: [{t:'A. 漂亮', c:false}, {t:'B. 實用多功能', c:true, e:'正確。'}] },
+                { title: 'Unit 8: 行為分析', passage: '小紅看到狗就躲在媽媽背後。', question: '原因？', options: [{t:'A. 怕狗', c:true, e:'正確。'}, {t:'B. 撒嬌', c:false}] }
+            ];
+
+            function renderQuestions() {
+                const container = document.getElementById('quiz-container');
+                if(!container) return;
+                
+                questions.forEach((q, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'card question-card p-6';
+                    
+                    let optionsHtml = '';
+                    q.options.forEach((opt) => {
+                        optionsHtml += `
+                        <div onclick="toggleAnswer(this, ${opt.c})" class="quiz-option p-4">
+                            ${opt.t}
+                            <div class="explanation-box">
+                                ${opt.c ? '🎉 ' : '❌ '} <strong>${opt.c ? '正確！' : '錯誤。'}</strong> ${opt.e || ''}
+                            </div>
+                        </div>`;
+                    });
+
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="badge badge-basic bg-blue-100 text-blue-800">${q.title}</span>
+                            <span class="text-gray-400 font-bold text-sm">第 ${idx + 1} 題</span>
+                        </div>
+                        <div class="passage-box">${q.passage}</div>
+                        <p class="font-bold text-lg mb-4 text-gray-800">問：${q.question}</p>
+                        <div class="space-y-0">${optionsHtml}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            // Init
+            switchTab('guide'); // Default to Guide
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>
