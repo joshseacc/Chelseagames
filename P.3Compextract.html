@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>閱讀理解大挑戰</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f9ff;
+            touch-action: manipulation;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .correct-anim {
+            animation: pop 0.3s ease-out;
+            background-color: #86efac !important; /* green-300 */
+            border-color: #22c55e !important;
+        }
+        .wrong-anim {
+            animation: shake 0.4s ease-in-out;
+            background-color: #fca5a5 !important; /* red-300 */
+            border-color: #ef4444 !important;
+        }
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .option-btn {
+            transition: all 0.2s;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-blue-50">
+
+    <div id="app" class="w-full max-w-2xl bg-white rounded-3xl shadow-xl overflow-hidden min-h-[600px] flex flex-col relative">
+        
+        <!-- Header -->
+        <div class="bg-indigo-600 p-4 text-white text-center shadow-md z-10">
+            <h1 class="text-2xl font-bold tracking-wider">📚 閱讀理解大挑戰</h1>
+        </div>
+
+        <!-- Content Area -->
+        <div id="game-container" class="flex-1 p-6 flex flex-col justify-center items-center relative">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+
+    </div>
+
+    <script>
+        // --- Game Data (Exactly as provided) ---
+        const gameData = {
+            part1: {
+                title: "第一部分：主旨題特訓",
+                desc: "找出段落中心思想",
+                color: "blue",
+                questions: [
+                    {
+                        text: "1. 大象的身軀十分龐大，走起路來像一座移動的小山。牠那扇子般的大耳朵可以趕走蚊蟲，長長的鼻子靈活得像手一樣，能捲起地上的食物，四條腿粗壯得像柱子一樣支撐著身體。",
+                        options: [
+                            "A. 大象喜歡用鼻子捲食物。",
+                            "B. 大象的走路聲很大。",
+                            "C. 大象的外型特徵和身體功能。"
+                        ],
+                        answer: 2 // Index 2 = C
+                    },
+                    {
+                        text: "2. 下課鐘聲一響，原本安靜的校園頓時沸騰起來。操場上，有的同學在興高采烈地跳繩，有的在全神貫注地踢足球，還有的圍在一起分享零食，到處都充滿了歡笑聲。",
+                        options: [
+                            "A. 同學們很喜歡吃零食。",
+                            "B. 下課時操場上熱鬧歡樂的情景。",
+                            "C. 跳繩是這間學校最受歡迎的運動。"
+                        ],
+                        answer: 1 // Index 1 = B
+                    },
+                    {
+                        text: "3. 為了在朗誦比賽中爭取好成績，小美每天早上六時便起床練習發音。即使喉嚨痛了，她也堅持喝口暖水繼續練。經過一個月的努力，她終於站在頒獎台上，拿到了冠軍獎盃。",
+                        options: [
+                            "A. 小美刻苦練習，終於在比賽中奪冠。",
+                            "B. 小美每天早上都很早起床。",
+                            "C. 小美喉嚨痛的時候會喝暖水。"
+                        ],
+                        answer: 0 // Index 0 = A
+                    },
+                    {
+                        text: "4. 長頸鹿媽媽低下頭，輕輕地舔著小長頸鹿的臉。遇到獅子來襲時，斑馬爸爸會用後腿猛踢敵人，保護身後的小斑馬。袋鼠媽媽則會把寶寶裝在育兒袋裡，帶著牠到處跑。",
+                        options: [
+                            "A. 草原上的動物都很兇猛。",
+                            "B. 動物父母保護和愛護子女的表現。",
+                            "C. 長頸鹿喜歡舔小長頸鹿的臉。"
+                        ],
+                        answer: 1 // Index 1 = B
+                    },
+                    {
+                        text: "5. 這種新型書包採用了防水物料，下雨也不怕弄濕課本。它的背墊設計符合人體工學，能保護脊骨健康。此外，它還有很多暗格，方便分類擺放文具，真是小學生的好幫手。",
+                        options: [
+                            "A. 這款書包的價錢很便宜。",
+                            "B. 如何保護小學生的脊骨。",
+                            "C. 這款新型書包的功能和優點。"
+                        ],
+                        answer: 2 // Index 2 = C
+                    },
+                    {
+                        text: "6. 雖然今天是公眾假期，但街道上的清潔工仍在默默清掃落葉；醫院裡的醫生和護士忙著照顧病人；警察叔叔也在烈日下指揮交通，維持道路暢通。",
+                        options: [
+                            "A. 公眾假期的街道很髒亂。",
+                            "B. 不同職業的人在假期緊守崗位。",
+                            "C. 警察叔叔的工作很辛苦。"
+                        ],
+                        answer: 1 // Index 1 = B
+                    },
+                    {
+                        text: "7. 森林大火發生了，濃煙四起。小猴子提著水桶跑來跑去，大象用長鼻子吸水噴向火源，小鳥在空中觀察火勢並通知大家。動物們不分你我，希望能盡快撲滅大火。",
+                        options: [
+                            "A. 森林大火非常可怕。",
+                            "B. 大象的鼻子很有用。",
+                            "C. 森林裡的動物齊心合力救火。"
+                        ],
+                        answer: 2 // Index 2 = C
+                    },
+                    {
+                        text: "8. 想要寫出一手好字，我們首先要保持正確的坐姿。其次，握筆的力度要適中，不能太大力。最後，我們要多臨摹字帖，觀察字體的結構，日子有功自然會進步。",
+                        options: [
+                            "A. 寫出一手好字的要訣。",
+                            "B. 握筆太大力會弄斷鉛筆。",
+                            "C. 臨摹字帖是很重要的事情。"
+                        ],
+                        answer: 0 // Index 0 = A
+                    },
+                    {
+                        text: "9. 陳伯伯雖然年過七十，頭髮花白，但他每天都會去公園打太極。看他打拳時動作靈活，說起話來中氣十足，臉色紅潤，一點也不像個老人家。",
+                        options: [
+                            "A. 陳伯伯喜歡在公園散步。",
+                            "B. 陳伯伯身體健康，充滿活力。",
+                            "C. 太極是一種適合老人的運動。"
+                        ],
+                        answer: 1 // Index 1 = B
+                    },
+                    {
+                        text: "10. 電腦網絡的世界很廣闊，我們可以利用它搜尋做功課的資料，也可以與遠在外國的親戚視像通話，甚至不用出門就能購買日常用品，十分方便。",
+                        options: [
+                            "A. 我們要小心使用電腦網絡。",
+                            "B. 網上購物比去超市便宜。",
+                            "C. 網絡為我們的生活帶來便利。"
+                        ],
+                        answer: 2 // Index 2 = C
+                    }
+                ]
+            },
+            part2: {
+                title: "第二部分：性格題特訓",
+                desc: "根據行為推斷性格",
+                color: "orange",
+                questions: [
+                    {
+                        text: "1. 只有五歲的小明在公園玩耍時，撿到了一隻昂貴的手錶。雖然周圍沒有人看到，但他沒有把它放進口袋，而是站在原地等候失主，直到一位焦急的叔叔回來尋找。",
+                        options: ["A. 膽小", "B. 路不拾遺 / 誠實", "C. 聰明"],
+                        answer: 1
+                    },
+                    {
+                        text: "2. 數學測驗時，志強遇到一道難題，算了好幾次都算不出來。但他沒有放棄，擦掉算式又重新計算，直到鐘聲響起的前一刻，他終於解開了題目，臉上露出了笑容。",
+                        options: ["A. 堅毅 / 有恆心", "B. 粗心大意", "C. 運氣好"],
+                        answer: 0
+                    },
+                    {
+                        text: "3. 美術課上，同學們都畫得很好，只有小華的畫被老師貼堂。他得意洋洋地對同學說：「你們畫得太差了，只有我才是天強！」然後不再練習，結果下次比賽落選了。",
+                        options: ["A. 充滿自信", "B. 驕傲 / 自大", "C. 誠實"],
+                        answer: 1
+                    },
+                    {
+                        text: "4. 小息時，有位低年級的同學不小心把果汁潑到家輝的新校服上。家輝不但沒有生氣，還拿出紙巾幫那位同學擦乾淨，笑著說：「沒關係，洗洗就乾淨了。」",
+                        options: ["A. 寬宏大量 / 包容", "B. 不愛乾淨", "C. 膽小怕事"],
+                        answer: 0
+                    },
+                    {
+                        text: "5. 志明每次做功課都只想快點做完去玩。今天他又是看也不看題目就填答案，結果把「天牛」寫成了「天午」，把「自己」寫成了「白己」，被老師扣了很多分。",
+                        options: ["A. 勤奮", "B. 愚蠢", "C. 粗心大意 / 馬虎"],
+                        answer: 2
+                    },
+                    {
+                        text: "6. 森林裡傳來恐怖的怪聲，小動物們都嚇得躲進草叢裡。只有小狗拿著手電筒，獨自一人走進黑暗的山洞裡查看究竟，原來只是一隻受傷的小鳥在叫。",
+                        options: ["A. 衝動", "B. 勇敢 / 無畏", "C. 頑皮"],
+                        answer: 1
+                    },
+                    {
+                        text: "7. 媽媽生病了，躺在床上動彈不得。小麗放學後沒有出去玩，而是安靜地煮了白粥，餵媽媽吃藥，還幫媽媽蓋好被子，整晚守在床邊照顧她。",
+                        options: ["A. 孝順 / 體貼", "B. 喜歡煮飯", "C. 聽話"],
+                        answer: 0
+                    },
+                    {
+                        text: "8. 班際接力賽快到了，雖然明知我們班不夠強，但班長還是在放學後組織大家練習接棒技巧，不斷鼓勵跑得慢的同學，希望能爭取最好的表現。",
+                        options: ["A. 嚴格", "B. 有責任感 / 具領導才能", "C. 樂觀"],
+                        answer: 1
+                    },
+                    {
+                        text: "9. 明明約好了星期天早上九點去圖書館做報告，雖然當天下著傾盆大雨，巴士也誤點了，但偉文還是冒雨趕去，準時到達圖書館門口等待組員。",
+                        options: ["A. 守時 / 重承諾", "B. 喜歡淋雨", "C. 固執"],
+                        answer: 0
+                    },
+                    {
+                        text: "10. 只要別人提出不同的意見，大文就會立刻發脾氣，大聲說：「我說的才是對的！你們都要聽我的！」完全不給別人解釋的機會。",
+                        options: ["A. 有主見", "B. 霸道 / 固執", "C. 直率"],
+                        answer: 1
+                    }
+                ]
+            },
+            part3: {
+                title: "第三部分：道理題特訓",
+                desc: "從故事結局領悟道理",
+                color: "green",
+                questions: [
+                    {
+                        text: "1. 烏鴉口渴了，找到半瓶水，可是瓶口太小喝不到。牠沒有生氣打碎瓶子，而是想了想，把小石子一顆顆丟進瓶裡。水面慢慢升高，烏鴉終於喝到水了。",
+                        options: ["A. 遇到困難要動腦筋解決。", "B. 石頭可以令水變好喝。", "C. 做事要有耐性才行。"],
+                        answer: 0
+                    },
+                    {
+                        text: "2. 兩隻山羊在獨木橋相遇，互不相讓。黑羊說：「讓我先過！」白羊說：「憑什麼？我要先過！」結果兩隻羊在橋上打架，最後一起掉進河裡沖走了。",
+                        options: ["A. 獨木橋很危險。", "B. 山羊的性格很衝動。", "C. 互不相讓只會導致兩敗俱傷。"],
+                        answer: 2
+                    },
+                    {
+                        text: "3. 小明為了不想做功課，騙媽媽說肚子痛。第一次媽媽信了，第二次媽媽也信了。到了第三次，他真的得了盲腸炎痛得大叫，媽媽卻以為他又是騙人，結果延誤了送院。",
+                        options: ["A. 盲腸炎是很痛的病。", "B. 經常說謊會失去別人的信任。", "C. 媽媽應該要帶小明看醫生。"],
+                        answer: 1
+                    },
+                    {
+                        text: "4. 古時候有個農夫，嫌田裡的秧苗長得太慢，就把它們一棵一棵往上拔高。他回家後很開心，以為幫了大忙。結果第二天去田裡一看，秧苗全部枯死了。",
+                        options: ["A. 種田需要很大的力氣。", "B. 做事不可急於求成 (欲速則不達)。", "C. 秧苗不能長得太高。"],
+                        answer: 1
+                    },
+                    {
+                        text: "5. 獅子捉到了老鼠，老鼠求獅子放過牠，並承諾會報答。獅子笑老鼠這麼小能做什麼，但還是放了牠。後來獅子被獵人的網困住，老鼠咬破了網，救了獅子一命。",
+                        options: ["A. 老鼠的牙齒很鋒利。", "B. 不要看輕弱小的人 (尺有所短，寸有所長)。", "C. 獅子不應該捉老鼠。"],
+                        answer: 1
+                    },
+                    {
+                        text: "6. 小華剛學鋼琴時覺得很難，但他每天堅持練習一小時，從不間斷。一年後，原本連音階都彈不好的他，竟然能在校慶晚會上演奏出動聽的名曲。",
+                        options: ["A. 鋼琴是很難學的樂器。", "B. 只要有恆心，鐵柱磨成針 (有志者事竟成)。", "C. 小華很有音樂天份。"],
+                        answer: 1
+                    },
+                    {
+                        text: "7. 森林裡的樹木被砍光了，小動物無家可歸。不久後暴雨來臨，因為沒有樹根抓緊泥土，洪水沖毀了村莊，人類也失去了家園。",
+                        options: ["A. 破壞大自然會自食其果。", "B. 洪水是非常可怕的災害。", "C. 小動物需要人類的保護。"],
+                        answer: 0
+                    },
+                    {
+                        text: "8. 一隻狐狸經過葡萄架，想吃葡萄卻跳得不夠高。試了幾次都失敗後，牠指著葡萄說：「哼！這些葡萄肯定是酸的，我才不稀罕呢！」然後就走了。",
+                        options: ["A. 狐狸真的不喜歡吃葡萄。", "B. 那串葡萄還沒有成熟。", "C. 遭遇失敗時自我安慰 (酸葡萄心理)。"],
+                        answer: 2
+                    },
+                    {
+                        text: "9. 小明以為自己很聰明，考試前從不溫習，只顧打機。結果試卷發下來時，他看著題目腦袋一片空白，最後只拿了不及格的分數。",
+                        options: ["A. 打機比溫習更重要。", "B. 一分耕耘，一分收穫 (不努力就不會有成果)。", "C. 聰明的人不需要溫習。"],
+                        answer: 1
+                    },
+                    {
+                        text: "10. 父子倆騎驢進城，路人說他們虐待動物；父騎子走，路人罵父親狠心；子騎父走，路人罵兒子不孝；兩人都不騎，路人笑他們笨。最後父子倆不知如何是好。",
+                        options: ["A. 那頭驢子太瘦弱了。", "B. 做事要有主見，不能過分在意別人的閒話。", "C. 父子倆應該分開進城。"],
+                        answer: 1
+                    }
+                ]
+            }
+        };
+
+        // --- Game Logic ---
+        const container = document.getElementById('game-container');
+        let currentSectionKey = null;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let isAnswered = false;
+
+        function renderHome() {
+            container.innerHTML = `
+                <div class="text-center fade-in w-full">
+                    <div class="mb-8">
+                        <span class="text-6xl">🏫</span>
+                    </div>
+                    <h2 class="text-xl text-gray-600 mb-8">請選擇一個練習單元：</h2>
+                    <div class="grid grid-cols-1 gap-4 w-full max-w-md mx-auto">
+                        <button onclick="startGame('part1')" class="bg-blue-100 hover:bg-blue-200 text-blue-800 p-6 rounded-2xl transition-all flex items-center shadow-sm">
+                            <span class="text-3xl mr-4">💡</span>
+                            <div class="text-left">
+                                <div class="font-bold text-lg">主旨題特訓</div>
+                                <div class="text-sm opacity-75">找出段落中心思想</div>
+                            </div>
+                        </button>
+                        <button onclick="startGame('part2')" class="bg-orange-100 hover:bg-orange-200 text-orange-800 p-6 rounded-2xl transition-all flex items-center shadow-sm">
+                            <span class="text-3xl mr-4">🦁</span>
+                            <div class="text-left">
+                                <div class="font-bold text-lg">性格題特訓</div>
+                                <div class="text-sm opacity-75">根據行為推斷性格</div>
+                            </div>
+                        </button>
+                        <button onclick="startGame('part3')" class="bg-green-100 hover:bg-green-200 text-green-800 p-6 rounded-2xl transition-all flex items-center shadow-sm">
+                            <span class="text-3xl mr-4">🌱</span>
+                            <div class="text-left">
+                                <div class="font-bold text-lg">道理題特訓</div>
+                                <div class="text-sm opacity-75">從故事結局領悟道理</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function startGame(sectionKey) {
+            currentSectionKey = sectionKey;
+            currentQuestionIndex = 0;
+            score = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const section = gameData[currentSectionKey];
+            const q = section.questions[currentQuestionIndex];
+            isAnswered = false;
+
+            // Determine color class based on section
+            let bgClass = "bg-blue-100";
+            let textClass = "text-blue-800";
+            if (currentSectionKey === 'part2') { bgClass = "bg-orange-100"; textClass = "text-orange-800"; }
+            if (currentSectionKey === 'part3') { bgClass = "bg-green-100"; textClass = "text-green-800"; }
+
+            container.innerHTML = `
+                <div class="w-full fade-in flex flex-col h-full">
+                    <!-- Progress Bar -->
+                    <div class="flex justify-between items-center mb-4 text-gray-500 text-sm font-bold">
+                        <span>${section.title}</span>
+                        <span>${currentQuestionIndex + 1} / ${section.questions.length}</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+                        <div class="h-2.5 rounded-full ${bgClass.replace('100', '500')}" style="width: ${((currentQuestionIndex + 1) / section.questions.length) * 100}%"></div>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="bg-white border-2 border-gray-100 p-6 rounded-2xl shadow-sm mb-6 flex-grow">
+                        <p class="text-lg leading-relaxed text-gray-800 font-medium">${q.text}</p>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="grid grid-cols-1 gap-3 mb-6" id="options-container">
+                        ${q.options.map((opt, index) => `
+                            <button 
+                                id="btn-${index}"
+                                onclick="checkAnswer(${index})"
+                                class="option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 text-gray-700 bg-white hover:bg-gray-50 hover:border-indigo-300 font-medium"
+                            >
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Feedback Area (Hidden initially) -->
+                    <div id="feedback-area" class="h-16 flex items-center justify-center">
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (isAnswered) return;
+            isAnswered = true;
+
+            const section = gameData[currentSectionKey];
+            const q = section.questions[currentQuestionIndex];
+            const correctIndex = q.answer;
+
+            const selectedBtn = document.getElementById(`btn-${selectedIndex}`);
+            const correctBtn = document.getElementById(`btn-${correctIndex}`);
+            const feedbackArea = document.getElementById('feedback-area');
+
+            // Disable all buttons
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('cursor-not-allowed', 'opacity-80');
+            });
+
+            if (selectedIndex === correctIndex) {
+                // Correct
+                score++;
+                selectedBtn.classList.add('correct-anim');
+                selectedBtn.classList.remove('border-gray-200', 'hover:border-indigo-300', 'bg-white');
+                feedbackArea.innerHTML = `
+                    <button onclick="nextQuestion()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transform transition hover:scale-105 flex items-center">
+                        答對了！下一題 <span class="ml-2">➜</span>
+                    </button>
+                `;
+            } else {
+                // Wrong
+                selectedBtn.classList.add('wrong-anim');
+                selectedBtn.classList.remove('border-gray-200', 'hover:border-indigo-300', 'bg-white');
+                
+                // Highlight correct answer
+                setTimeout(() => {
+                    correctBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                }, 400);
+
+                feedbackArea.innerHTML = `
+                    <button onclick="nextQuestion()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transform transition hover:scale-105 flex items-center">
+                        繼續努力！下一題 <span class="ml-2">➜</span>
+                    </button>
+                `;
+            }
+        }
+
+        function nextQuestion() {
+            const section = gameData[currentSectionKey];
+            if (currentQuestionIndex < section.questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const section = gameData[currentSectionKey];
+            const percentage = (score / section.questions.length) * 100;
+            
+            let message = "";
+            let icon = "";
+            let color = "";
+
+            if (percentage === 100) {
+                message = "太厲害了！你是閱讀小博士！";
+                icon = "🏆";
+                color = "text-yellow-500";
+            } else if (percentage >= 80) {
+                message = "做得很好！繼續保持！";
+                icon = "🌟";
+                color = "text-green-500";
+            } else if (percentage >= 60) {
+                message = "不錯喔！再細心一點會更好！";
+                icon = "👍";
+                color = "text-blue-500";
+            } else {
+                message = "別灰心，多練習就會進步！";
+                icon = "💪";
+                color = "text-orange-500";
+            }
+
+            container.innerHTML = `
+                <div class="text-center fade-in w-full flex flex-col items-center">
+                    <div class="text-8xl mb-4 animate-bounce">${icon}</div>
+                    <h2 class="text-3xl font-bold mb-2 ${color}">${score} / ${section.questions.length}</h2>
+                    <p class="text-xl text-gray-600 mb-8">${message}</p>
+                    
+                    <div class="flex gap-4">
+                        <button onclick="startGame('${currentSectionKey}')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold transition">
+                            再玩一次
+                        </button>
+                        <button onclick="renderHome()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-bold shadow-lg transition">
+                            返回主目錄
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize
+        renderHome();
+
+    </script>
+</body>
+</html>
