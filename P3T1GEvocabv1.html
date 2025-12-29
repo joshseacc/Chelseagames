@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chelsea's Vocabulary Adventure</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            text-shadow: 2px 2px #bcdae7;
+        }
+        .instruction {
+            text-align: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .story-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+        }
+        .story-title {
+            font-size: 1.2em;
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #e67e22;
+            padding-bottom: 5px;
+        }
+        select {
+            font-family: inherit;
+            font-size: 16px;
+            padding: 5px;
+            margin: 2px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background-color: #eaf6ff;
+            cursor: pointer;
+            color: #333;
+        }
+        select:hover {
+            background-color: #d4ebf9;
+        }
+        /* Feedback styles */
+        .correct {
+            border-color: #27ae60 !important;
+            background-color: #d5f5e3 !important;
+            color: #006400;
+            font-weight: bold;
+        }
+        .wrong {
+            border-color: #c0392b !important;
+            background-color: #fadbd8 !important;
+            color: #8b0000;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px #27ae60;
+            transition: all 0.1s;
+        }
+        button:active {
+            box-shadow: 0 0 #27ae60;
+            transform: translateY(4px);
+        }
+        #score {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            height: 30px;
+            color: #8e44ad;
+        }
+        .hidden-answer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chelsea's Vocab Challenge 🌟</h1>
+    
+    <div class="instruction">
+        <p>Hi Chelsea! Read the stories below. Click the boxes to choose the best word to finish the sentence.</p>
+    </div>
+
+    <div class="story-container">
+        <div class="story-title">Story 1: A Night Out (Units 1 & 2)</div>
+        <p>
+            Last Saturday, my family went to a fancy 
+            <select onchange="checkSelf(this, 'restaurant')">
+                <option value="">???</option>
+                <option value="restaurant">restaurant</option>
+                <option value="traffic light">traffic light</option>
+                <option value="volcano">volcano</option>
+            </select>. 
+            The 
+            <select onchange="checkSelf(this, 'waiter')">
+                <option value="">???</option>
+                <option value="waiter">waiter</option>
+                <option value="audience">audience</option>
+                <option value="mechanic">mechanic</option>
+            </select>
+            was wearing a smart 
+            <select onchange="checkSelf(this, 'uniform')">
+                <option value="">???</option>
+                <option value="menu">menu</option>
+                <option value="uniform">uniform</option>
+                <option value="salad">salad</option>
+            </select>.
+            I looked at the 
+            <select onchange="checkSelf(this, 'menu')">
+                <option value="">???</option>
+                <option value="menu">menu</option>
+                <option value="plate">plate</option>
+                <option value="stage">stage</option>
+            </select>
+            and ordered a steak with 
+            <select onchange="checkSelf(this, 'mashed')">
+                <option value="">???</option>
+                <option value="mashed">mashed</option>
+                <option value="frozen">frozen</option>
+                <option value="clumsy">clumsy</option>
+            </select>
+            potatoes. It was 
+            <select onchange="checkSelf(this, 'delicious')">
+                <option value="">???</option>
+                <option value="delicious">delicious</option>
+                <option value="vulnerable">vulnerable</option>
+                <option value="traditional">traditional</option>
+            </select>!
+            <br><br>
+            After dinner, we went to a concert. The musicians on the 
+            <select onchange="checkSelf(this, 'stage')">
+                <option value="">???</option>
+                <option value="stage">stage</option>
+                <option value="brunch">brunch</option>
+                <option value="enclosure">enclosure</option>
+            </select>
+            played their 
+            <select onchange="checkSelf(this, 'instruments')">
+                <option value="">???</option>
+                <option value="instruments">instruments</option>
+                <option value="equipment">equipment</option>
+                <option value="memories">memories</option>
+            </select>
+            perfectly. The 
+            <select onchange="checkSelf(this, 'audience')">
+                <option value="">???</option>
+                <option value="audience">audience</option>
+                <option value="customer">customer</option>
+                <option value="relatives">relatives</option>
+            </select>
+            started to 
+            <select onchange="checkSelf(this, 'cheer')">
+                <option value="">???</option>
+                <option value="cheer">cheer</option>
+                <option value="melt">melt</option>
+                <option value="growl">growl</option>
+            </select>
+            loudly because the music was 
+            <select onchange="checkSelf(this, 'brilliant')">
+                <option value="">???</option>
+                <option value="brilliant">brilliant</option>
+                <option value="greasy">greasy</option>
+                <option value="salty">salty</option>
+            </select>.
+        </p>
+    </div>
+
+    <div class="story-container">
+        <div class="story-title">Story 2: The Adventure (Units 5 & 11)</div>
+        <p>
+            We went on an 
+            <select onchange="checkSelf(this, 'expedition')">
+                <option value="">???</option>
+                <option value="expedition">expedition</option>
+                <option value="exhibition">exhibition</option>
+                <option value="extinction">extinction</option>
+            </select>
+            to the rainforest. We packed all our camping 
+            <select onchange="checkSelf(this, 'equipment')">
+                <option value="">???</option>
+                <option value="equipment">equipment</option>
+                <option value="instruments">instruments</option>
+                <option value="ornaments">ornaments</option>
+            </select>.
+            But first, we got stuck in the city! There was a red 
+            <select onchange="checkSelf(this, 'traffic light')">
+                <option value="">???</option>
+                <option value="traffic light">traffic light</option>
+                <option value="petrol station">petrol station</option>
+                <option value="volcano">volcano</option>
+            </select>
+            and lots of cars at the 
+            <select onchange="checkSelf(this, 'roundabout')">
+                <option value="">???</option>
+                <option value="roundabout">roundabout</option>
+                <option value="summit">summit</option>
+                <option value="theatre">theatre</option>
+            </select>.
+            We had to 
+            <select onchange="checkSelf(this, 'hurry')">
+                <option value="">???</option>
+                <option value="hurry">hurry</option>
+                <option value="clap">clap</option>
+                <option value="breed">breed</option>
+            </select>.
+            <br><br>
+            In the forest, we saw a baby bear, called a 
+            <select onchange="checkSelf(this, 'cub')">
+                <option value="">???</option>
+                <option value="cub">cub</option>
+                <option value="vet">vet</option>
+                <option value="toddler">toddler</option>
+            </select>.
+            It was very 
+            <select onchange="checkSelf(this, 'clumsy')">
+                <option value="">???</option>
+                <option value="clumsy">clumsy</option>
+                <option value="tuneful">tuneful</option>
+                <option value="welcoming">welcoming</option>
+            </select>
+            and tripped over a log! We learned that this animal is 
+            <select onchange="checkSelf(this, 'endangered')">
+                <option value="">???</option>
+                <option value="endangered">endangered</option>
+                <option value="pleasant">pleasant</option>
+                <option value="popular">popular</option>
+            </select>,
+            which means we must protect its natural 
+            <select onchange="checkSelf(this, 'habitat')">
+                <option value="">???</option>
+                <option value="habitat">habitat</option>
+                <option value="status">status</option>
+                <option value="mess">mess</option>
+            </select>.
+        </p>
+    </div>
+
+    <div class="story-container">
+        <div class="story-title">Story 3: Family Reunion (Units 14 & 15)</div>
+        <p>
+            My house was full of 
+            <select onchange="checkSelf(this, 'relatives')">
+                <option value="">???</option>
+                <option value="relatives">relatives</option>
+                <option value="customers">customers</option>
+                <option value="strangers">strangers</option>
+            </select>
+            yesterday. My dad's mother (my 
+            <select onchange="checkSelf(this, 'mother-in-law')">
+                <option value="">???</option>
+                <option value="mother-in-law">mother-in-law</option>
+                <option value="grandmother">grandmother</option> <option value="niece">niece</option>
+            </select>*) 
+            was there. My aunt brought her son, my 
+            <select onchange="checkSelf(this, 'nephew')">
+                <option value="">???</option>
+                <option value="nephew">nephew</option>
+                <option value="niece">niece</option>
+                <option value="husband">husband</option>
+            </select>,
+            and her daughter, my 
+            <select onchange="checkSelf(this, 'niece')">
+                <option value="">???</option>
+                <option value="niece">niece</option>
+                <option value="nephew">nephew</option>
+                <option value="wife">wife</option>
+            </select>.
+            The children made a huge 
+            <select onchange="checkSelf(this, 'mess')">
+                <option value="">???</option>
+                <option value="mess">mess</option>
+                <option value="queue">queue</option>
+                <option value="sensation">sensation</option>
+            </select>
+            with their toys!
+            <br><br>
+            Later, we talked about jobs. My uncle is a 
+            <select onchange="checkSelf(this, 'mechanic')">
+                <option value="">???</option>
+                <option value="mechanic">mechanic</option>
+                <option value="vet">vet</option>
+                <option value="dentist">dentist</option>
+            </select>
+            who fixes cars. My sister loves writing, so she wants to be an 
+            <select onchange="checkSelf(this, 'author')">
+                <option value="">???</option>
+                <option value="author">author</option>
+                <option value="architect">architect</option>
+                <option value="ambassador">ambassador</option>
+            </select>.
+            We looked at a 
+            <select onchange="checkSelf(this, 'photo album')">
+                <option value="">???</option>
+                <option value="photo album">photo album</option>
+                <option value="textbook">textbook</option>
+                <option value="menu">menu</option>
+            </select>
+            full of happy 
+            <select onchange="checkSelf(this, 'memories')">
+                <option value="">???</option>
+                <option value="memories">memories</option>
+                <option value="dreams">dreams</option>
+                <option value="status">status</option>
+            </select>.
+        </p>
+        <p style="font-size:0.8em; color:gray;">*Note: In the vocab list, "mother-in-law" is the mother of your husband/wife.</p>
+    </div>
+
+    <div class="btn-container">
+        <button onclick="checkAll()">Check My Score!</button>
+        <div id="score"></div>
+    </div>
+
+    <script>
+        // Simple function to check individual answers as she goes
+        function checkSelf(element, correctAnswer) {
+            if (element.value === correctAnswer) {
+                element.className = 'correct';
+            } else if (element.value === "") {
+                element.className = '';
+            } else {
+                element.className = 'wrong';
+            }
+        }
+
+        // Function to check all and give a score
+        function checkAll() {
+            var selects = document.getElementsByTagName('select');
+            var correctCount = 0;
+            var total = selects.length;
+            var allAnswered = true;
+
+            // Correct answers list in order of appearance
+            var answers = [
+                "restaurant", "waiter", "uniform", "menu", "mashed", "delicious",
+                "stage", "instruments", "audience", "cheer", "brilliant",
+                "expedition", "equipment", "traffic light", "roundabout", "hurry",
+                "cub", "clumsy", "endangered", "habitat",
+                "relatives", "mother-in-law", "nephew", "niece", "mess",
+                "mechanic", "author", "photo album", "memories"
+            ];
+
+            for (var i = 0; i < selects.length; i++) {
+                if (selects[i].value === answers[i]) {
+                    correctCount++;
+                    selects[i].className = 'correct';
+                } else {
+                    selects[i].className = 'wrong';
+                }
+                
+                if (selects[i].value === "") {
+                    allAnswered = false;
+                }
+            }
+
+            var scoreDiv = document.getElementById('score');
+            if (!allAnswered) {
+                scoreDiv.innerHTML = "You haven't finished yet! Keep going! 🏃‍♀️";
+                scoreDiv.style.color = "#e67e22";
+            } else if (correctCount === total) {
+                scoreDiv.innerHTML = "🎉 AMAZING! You got " + correctCount + "/" + total + "! 🎉";
+                scoreDiv.style.color = "#27ae60";
+            } else {
+                scoreDiv.innerHTML = "Great try! You got " + correctCount + "/" + total + ". Check the red boxes again! 💪";
+                scoreDiv.style.color = "#c0392b";
+            }
+        }
+    </script>
+
+</body>
+</html>
