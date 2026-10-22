@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.4 Mathematics CA vs Module Worksheet Analysis</title>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft JhengHei';
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px; /* Ensures horizontal scroll on small screens rather than squishing */
+        }
+        thead {
+            background-color: #34495e;
+            color: #fff;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        th {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f6f8;
+        }
+        tbody tr:hover {
+            background-color: #e8f4f8;
+        }
+        .section-header {
+            background-color: #e0e7ec !important;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .col-ca { width: 25%; }
+        .col-worksheet { width: 25%; }
+        .col-knowledge { width: 15%; color: #d35400; font-weight: 500;}
+        .col-analysis { width: 35%; }
+        
+        strong {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>P.4 Mathematics CA vs Module Worksheet 考核分析表</h1>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-ca">CA Question (CA 題目)</th>
+                    <th class="col-worksheet">Corresponding Module Worksheet (對應工作紙原題)</th>
+                    <th class="col-knowledge">考核知識點</th>
+                    <th class="col-analysis">分析與正確答案</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Part A -->
+                <tr>
+                    <td colspan="4" class="section-header">Part A: Number</td>
+                </tr>
+                <tr>
+                    <td><strong>Q1.</strong> If \(ABC \times S = 392\), then \(ABC \times SS = \_\_\_\_\)</td>
+                    <td><strong>HKAT-Worksheet (1.6) Q1:</strong><br>"If \(PQ \times R = 115\), then \(PQ \times RR = ?\)"</td>
+                    <td>乘法的位值概念與拆解</td>
+                    <td>學生需理解 \(SS\) 代表 \(S \times 11\)。因此答案為 \(392 \times 11 =\) <strong>4312</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q2.</strong> \(73 \times 16 - 16 \times 15 = \_\_\_\_ \times (\_\_\_\_)\)</td>
+                    <td><strong>Worksheet (1.1) A2 & B3:</strong><br>A2: "\(417 \times 9 - 187 \times 9\)"<br>B3: "Which of the following gives the same result as \(19 \times 6 - 13 \times 6\)?"</td>
+                    <td>乘法分配律 (提取公因數)</td>
+                    <td>需將算式重新組合，提取公因數 16。答案填空為 <strong>16</strong> \(\times\) <strong>(73 - 15)</strong> 或 <strong>16</strong> \(\times\) <strong>(58)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q3.</strong> \(260 \div \_\_\_\_ = 28 ... 8\)</td>
+                    <td><strong>Worksheet (2.2) A4 & A5:</strong><br>A4: "\(90 \div \_\_\_ = 5 ... 5\)"<br>A5: "\(\_\_\_ \div 29 = 2 ... 5\)"</td>
+                    <td>帶餘除法的逆向運算</td>
+                    <td>利用公式「除數 = (被除數 - 餘數) &divide; 商」。計算：\((260 - 8) \div 28 =\) <strong>9</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q4.</strong> The number between 661 and 679 that is divisible by both 3 and 5 is \_\_\_\_</td>
+                    <td><strong>Worksheet (2.4) A1 & A2:</strong><br>A1: "Find all the numbers divisible by 3..."<br>A2: "Which number(s) above are divisible by 2, 3, 5 and 10?"</td>
+                    <td>3 和 5 的整除性法則</td>
+                    <td>尾數必須是 0 或 5（得 665, 670, 675），且數字總和須為 3 的倍數。只有 \(6+7+5=18\) 符合。答案：<strong>675</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q5.</strong> A teacher shared 174 chocolates among 18 children equally and gave the remaining chocolates to the youngest children. The youngest children received \_\_\_\_ chocolates.</td>
+                    <td><strong>Worksheet (2.3) A2:</strong><br>"478 pieces of dim sums are put equally into 27 paper boxes. If the remaining dim sums are put into one plastic box, how many pieces of dim sums are in the plastic box?"</td>
+                    <td>除法應用題 (求餘數)</td>
+                    <td>\(174 \div 18 = 9 \text{ ... } 12\)。最年幼孩子獲得剩餘的 <strong>12</strong> 粒。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q6.</strong> There are 219 tarts in a bakery. If the staff packs each dozen into boxes, at least \_\_\_\_ boxes are needed in order to pack all the tarts into boxes.</td>
+                    <td><strong>HKAT-Worksheet (2.5) Q5:</strong><br>"...147 P.4 students... each coach could accommodate 44 students, how many coaches are needed at least?"</td>
+                    <td>除法應用題 (進一法)</td>
+                    <td>隱藏條件「一打 (dozen) = 12」。\(219 \div 12 = 18 \text{ ... } 3\)。剩下的 3 件也需要 1 個盒子，故 \(18 + 1 =\) <strong>19</strong> 盒。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q7.</strong> Use all the number cards above (8, 7, 2, 3) to make two 2-digit numbers that give the largest possible product.</td>
+                    <td><strong>Worksheet (1.2) Q4:</strong><br>"Above are 4 number cards [0, 1, 4, 8]. Use them to make two 2-digit numbers that give the largest possible product."</td>
+                    <td>乘法位值組合邏輯</td>
+                    <td>最大數字放十位，交叉配對個位。最大組合為 <strong>82 &times; 73</strong>（積為 5986，大於 \(83 \times 72\)）。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q8.</strong> Which of the following can be the result of \(84 \times 60\)?</td>
+                    <td><strong>Worksheet (1.3) & (1.5) 計算題:</strong><br>單純的乘法直式計算如 "\(119 \times 20\)", "\(80 \times 26=\)"</td>
+                    <td>乘法估算 / 隱藏數字</td>
+                    <td>實際為 \(84 \times 60 = 5040\)，選項中無此數。測試大於 5040 的 84 倍數，即 \(84 \times 61 =\) <strong>5124 (選項 D)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q9.</strong> Which of the following expressions gives the same result as \(201 \times 99\)?</td>
+                    <td><strong>HKAT-Worksheet (1.6) Q4:</strong><br>"\(99 \times 101 = ?\)" (選項包括 \(99 \times 100 + 1\), \(100 \times 101 - 1\) 等)</td>
+                    <td>乘法分配律 (靈活拆解)</td>
+                    <td>將 201 拆解為 \((200 + 1)\)，算式變為 \((200 + 1) \times 99 =\) <strong>200 &times; 99 + 99 (選項 B)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q10.</strong> At least how many should be subtracted from the 5-digit number 26 548 so that it is divisible by both 3 and 10?</td>
+                    <td><strong>Worksheet (2.4) Challenge Problem:</strong><br>"When the 4-digit number 23__ is divided by 10, the quotient is the greatest..."</td>
+                    <td>整除性法則綜合應用</td>
+                    <td>減去 <strong>28 (選項 C)</strong> 後變為 26520，尾數為 0 且數字和為 15，完美符合 10 和 3 的整除條件。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q11.</strong> A roll of red ribbon is 3 m long, which is 247 cm shorter than a roll of yellow ribbon. Woody uses 39 rolls of the yellow ribbon to decorate the hall. What is the total length of yellow ribbon used?</td>
+                    <td><strong>Worksheet (1.4) Q4:</strong><br>"Each ticket is $40 less than the original price of $312. How much should be paid for buying 22 tickets now?"</td>
+                    <td>單位換算、多步乘加混合</td>
+                    <td>陷阱：紅比黃「短」，故黃絲帶是 \(300 + 247 = 547\text{cm}\)。總長 = \(547 \times 39 =\) <strong>21333 cm</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q12.</strong> The chef bakes 428 cheese tarts and 340 blueberry tarts. He has 49 boxes, if he puts 16 tarts of mixed flavours in each box, are there enough boxes to pack all the tarts?</td>
+                    <td><strong>Worksheet (2.3) Q3:</strong><br>"There are 85 people in a tourist group. If each coach can carry at most 15 people, how many coaches are needed...?"</td>
+                    <td>加乘混合比較 / 邏輯判斷</td>
+                    <td>總數 \(428+340 = 768\) 件；總容量 \(49 \times 16 = 784\) 件。因為 \(784 > 768\)，所以 <strong>足夠 (are)</strong>。</td>
+                </tr>
+
+                <!-- Part B -->
+                <tr>
+                    <td colspan="4" class="section-header">Part B: Measures</td>
+                </tr>
+                <tr>
+                    <td><strong>Q13.</strong> The difference between the capacity of [pot] and [cup] is \_\_\_\_</td>
+                    <td><em>(此為重溫課題，沒有出現在 M1-M3 工作紙)</em></td>
+                    <td>容量讀圖 (mL) 及代數推理</td>
+                    <td>1小格 = 100mL。2杯 = 400mL (1杯 = 200mL)。1壺 = 900mL。相差 \(900 - 200 =\) <strong>700 mL</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q14.</strong> \(70003\text{ m} = \_\_ \text{km} \_\_ \text{cm}\)</td>
+                    <td><em>(此為重溫課題，沒有出現在 M1-M3 工作紙)</em></td>
+                    <td>長度跨級單位換算</td>
+                    <td>\(70000\text{m} = 70\text{km}\)；剩下的 \(3\text{m} \times 100 = 300\text{cm}\)。答案：<strong>70 km 300 cm</strong>。</td>
+                </tr>
+
+                <!-- Part C -->
+                <tr>
+                    <td colspan="4" class="section-header">Part C: Shape and Space</td>
+                </tr>
+                <tr>
+                    <td><strong>Q15.</strong> Which of the following shapes belongs to the family of rhombuses?</td>
+                    <td><strong>Worksheet (3.4):</strong><br>"Write the letters and names of quadrilaterals in the Venn diagram..."</td>
+                    <td>四邊形的包含關係</td>
+                    <td>正方形是特殊的菱形（符合四邊相等條件），故選 <strong>Square (選項 B)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q16.</strong> Which of the following shapes belong to the family of parallelograms?</td>
+                    <td><strong>Worksheet (3.3) B4:</strong><br>"Which of the following quadrilaterals belong to the family of parallelograms?"</td>
+                    <td>四邊形的包含關係</td>
+                    <td>正方形、長方形、菱形皆具備「兩組對邊互相平行」的條件。選 <strong>(1), (2) and (3) (選項 C)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q17.</strong> Which of the following properties are shared by rectangles and rhombuses?</td>
+                    <td><strong>Worksheet (3.2) A2 & (3.5):</strong><br>"Which of the following properties are shared by squares and rhombuses?"</td>
+                    <td>四邊形特性對比</td>
+                    <td>兩者皆有 (2) 2對對邊長度相等、(3) 2對平行邊。選 <strong>(2) and (3) (選項 B)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q18.</strong> By cutting along the diagonals of a rhombus, what shape(s) can be obtained?</td>
+                    <td><strong>Glossary & HKAT (3.6) Q1:</strong><br>"Rhombus(es): ... + perpendicular diagonals"</td>
+                    <td>對角線垂直的空間概念</td>
+                    <td>菱形對角線必定互相垂直，剪開後必產生直角，得到 <strong>Right-angled triangle (選項 A)</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q19.</strong> A rhombus can be formed with \_\_\_\_ of such triangles. Every side of the rhombus formed is \_\_\_\_ cm long.</td>
+                    <td><strong>HKAT-Worksheet (3.6) Q2 & Q4:</strong><br>"2 equilateral triangles... form a quadrilateral..."</td>
+                    <td>菱形的定義與拼砌</td>
+                    <td>將兩條 5cm 的邊貼合藏在內部，外露四條 12cm 的邊。需 <strong>2</strong> 個三角形，菱形邊長為 <strong>12 cm</strong>。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q20.</strong> Given one of its sides, draw a rhombus without any right angles on the dotted paper below.</td>
+                    <td><strong>Worksheet (3.1) A:</strong><br>"Draw three different rhombuses (without any right angles) on the grid and the dotted paper below."</td>
+                    <td>點陣圖繪圖技巧</td>
+                    <td>需依照原斜線的「橫向與直向格數比例」畫出另外三條長度相等的邊，並避開 90 度角。</td>
+                </tr>
+
+                <!-- Part D -->
+                <tr>
+                    <td colspan="4" class="section-header">Part D: Data Handling</td>
+                </tr>
+                <tr>
+                    <td><strong>Q21(a).</strong> The expenditure of Kate on Tuesday is \_\_\_\_ times that on Thursday.</td>
+                    <td><em>(此為重溫課題，沒有出現在 M1-M3 工作紙)</em></td>
+                    <td>棒形圖讀取及除法比較</td>
+                    <td>每小格為 5 元。星期二(90)，星期四(15)。\(90 \div 15 =\) <strong>6</strong> times。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q21(b).</strong> Mother gives Kate $135 every weekday. From Monday to Tuesday, Kate has $\_\_\_\_ left.</td>
+                    <td><em>(此為重溫課題，沒有出現在 M1-M3 工作紙)</em></td>
+                    <td>隱藏條件與混合運算</td>
+                    <td>陷阱：「every weekday」即兩天皆有 135 元。剩餘：\((135 \times 2) - (75 + 90) =\) <strong>105</strong> 元。</td>
+                </tr>
+                <tr>
+                    <td><strong>Q21(c).</strong> The expenditure with the most spent in a day is \_\_\_\_ of the total expenditure from Monday to Friday.</td>
+                    <td><em>(此為重溫課題，沒有出現在 M1-M3 工作紙)</em></td>
+                    <td>總數加總與分數比例</td>
+                    <td>最高(90) &divide; 總和(75+90+85+15+65=330)。分數為 \(90/330\)，約簡為 <strong>3/11</strong>。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
