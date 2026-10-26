@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Guide to English Tenses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .tense-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tense-card:hover {
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08), 0 4px 8px -4px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Active button state by tense theme */
+        .theme-emerald .tab-btn.active {
+            background-color: #059669;
+            color: #ffffff;
+            border-color: #059669;
+        }
+        .theme-rose .tab-btn.active {
+            background-color: #e11d48;
+            color: #ffffff;
+            border-color: #e11d48;
+        }
+        .theme-blue .tab-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+        .theme-cyan .tab-btn.active {
+            background-color: #0891b2;
+            color: #ffffff;
+            border-color: #0891b2;
+        }
+        .theme-orange .tab-btn.active {
+            background-color: #ea580c;
+            color: #ffffff;
+            border-color: #ea580c;
+        }
+
+        /* Pulse animation for active moments */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .pulse-marker {
+            animation: pulse-ring 2s infinite ease-in-out;
+            transform-origin: center;
+        }
+    </style>
+</head>
+<body class="text-slate-800 p-3 sm:p-6 md:p-10">
+
+<div class="max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <header class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 bg-slate-200/80 text-slate-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+            Interactive Grammar Map
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+            English Tenses Visual Guide
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+            Clear timelines illustrating how actions relate to <span class="font-bold text-slate-900 bg-amber-100 px-1.5 py-0.5 rounded">NOW</span>. Tap the tabs on each tense to explore different real-world scenarios.
+        </p>
+
+        <!-- Quick Jump Bar -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 mt-6">
+            <a href="#vs-comparison" class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition-colors shadow-sm flex items-center gap-1.5">
+                <span>⚡</span> Simple Past vs. Present Perfect
+            </a>
+            <a href="#simple-present" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors">
+                1. Simple Present
+            </a>
+            <a href="#simple-past" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-rose-100 text-rose-800 hover:bg-rose-200 transition-colors">
+                2. Simple Past
+            </a>
+            <a href="#present-continuous" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">
+                3. Present Continuous
+            </a>
+            <a href="#past-continuous" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-cyan-100 text-cyan-800 hover:bg-cyan-200 transition-colors">
+                4. Past Continuous
+            </a>
+            <a href="#present-perfect" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-orange-100 text-orange-800 hover:bg-orange-200 transition-colors">
+                5. Present Perfect
+            </a>
+        </nav>
+    </header>
+
+    <!-- Master Timeline Orientation Legend -->
+    <div class="bg-white rounded-xl p-4 mb-8 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-slate-600 gap-3">
+        <div class="flex items-center gap-2 font-bold text-slate-800">
+            <span>🧭 Timeline Reference:</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span> <strong>Left:</strong> Past</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-900 border-2 border-white ring-2 ring-slate-400"></span> <strong>Center-Right:</strong> NOW (Present)</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span> <strong>Right:</strong> Future</span>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- DEDICATED SHOWDOWN: SIMPLE PAST VS. PRESENT PERFECT      -->
+    <!-- ======================================================== -->
+    <section id="vs-comparison" class="tense-card bg-white rounded-2xl p-5 sm:p-7 shadow-lg border-2 border-amber-300 mb-10 ring-1 ring-amber-100">
+        <!-- Banner Header -->
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-amber-100 pb-4 mb-5">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-100 to-orange-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full mb-2 border border-amber-200">
+                    <span class="text-rose-600 font-extrabold">Simple Past</span>
+                    <span>VS</span>
+                    <span class="text-orange-600 font-extrabold">Present Perfect</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    The Ultimate Timeline Showdown
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-1">
+                    See why one is a <strong class="text-rose-700">finished point in the past</strong> while the other is a <strong class="text-orange-600">live bridge landing on NOW</strong>.
+                </p>
+            </div>
+            <div class="hidden sm:flex flex-col items-end text-xs font-semibold text-slate-500">
+                <span class="text-rose-600">● Dot = Closed Chapter</span>
+                <span class="text-orange-600">⌢ Arc = Connected to Today</span>
+            </div>
+        </div>
+
+        <!-- Interactive Pair Selector -->
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-wider font-bold text-slate-400 block mb-2">
+                Choose a comparison scenario to see how the meaning changes:
+            </span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="selectVsPair('did-done')" id="vsBtn-did-done" class="vs-pair-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 border-amber-500 bg-amber-50 text-amber-900 transition-all text-left shadow-sm">
+                    1. "I did it" vs "I have done it"
+                    <span class="block text-[11px] font-normal text-slate-500">The Core Concept</span>
+                </button>
+                <button onclick="selectVsPair('keys')" id="vsBtn-keys" class="vs-pair-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-all text-left">
+                    2. Lost Keys
+                    <span class="block text-[11px] font-normal text-slate-500">Current result vs past event</span>
+                </button>
+                <button onclick="selectVsPair('london')" id="vsBtn-london" class="vs-pair-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-all text-left">
+                    3. Lived in London
+                    <span class="block text-[11px] font-normal text-slate-500">Moved away vs still living there</span>
+                </button>
+                <button onclick="selectVsPair('paris')" id="vsBtn-paris" class="vs-pair-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-all text-left">
+                    4. Visited Paris
+                    <span class="block text-[11px] font-normal text-slate-500">Specific year vs life experience</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Master SVG Visualization (faithful to the user's diagram) -->
+        <div class="bg-gradient-to-b from-slate-50 to-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-inner">
+            <div class="w-full overflow-hidden">
+                <svg viewBox="0 0 840 250" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <!-- Arrowhead for Present Perfect Arc -->
+                        <marker id="vs-arc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#ea580c" />
+                        </marker>
+                        <!-- Pointer Arrowhead for Simple Past -->
+                        <marker id="vs-pin-arrow" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 5 10 L 10 0 z" fill="#e11d48" />
+                        </marker>
+                    </defs>
+
+                    <!-- Background Reference Zones -->
+                    <rect x="50" y="20" width="510" height="150" fill="#f8fafc" rx="8" opacity="0.5" />
+                    <rect x="560" y="20" width="230" height="150" fill="#f1f5f9" rx="8" opacity="0.3" />
+
+                    <!-- Main Timeline Horizontal Axis -->
+                    <line x1="60" y1="120" x2="780" y2="120" stroke="#0f172a" stroke-width="2.5" />
+                    <!-- Left and Right Axis Arrows -->
+                    <polygon points="50,120 62,114 62,126" fill="#0f172a" />
+                    <polygon points="790,120 778,114 778,126" fill="#0f172a" />
+
+                    <!-- Axis Labels -->
+                    <text x="80" y="112" font-size="14" fill="#64748b" font-weight="800" font-family="'Inter', sans-serif">PAST &lt;&lt;&lt;&lt;&lt;</text>
+                    <text x="760" y="112" font-size="14" fill="#64748b" font-weight="800" text-anchor="end" font-family="'Inter', sans-serif">&gt;&gt;&gt;&gt;&gt; FUTURE</text>
+
+                    <!-- The NOW Vertical Axis Line (Matches user's diagram) -->
+                    <line x1="560" y1="30" x2="560" y2="185" stroke="#0f172a" stroke-width="2.5" />
+                    <text x="560" y="24" font-size="16" fill="#0f172a" font-weight="900" text-anchor="middle" font-family="'Inter', sans-serif">NOW</text>
+                    <text x="560" y="142" font-size="12" fill="#0f172a" font-weight="800" text-anchor="middle" font-family="'Inter', sans-serif">PRESENT</text>
+
+                    <!-- ============================================== -->
+                    <!-- PRESENT PERFECT ARC (Orange Bridge to NOW)     -->
+                    <!-- ============================================== -->
+                    <path id="vsSvgArc" d="M 280 114 Q 420 18 555 112" fill="none" stroke="#ea580c" stroke-width="6" stroke-linecap="round" marker-end="url(#vs-arc-arrow)" />
+                    
+                    <!-- Pulsing/Glowing target dot at NOW -->
+                    <circle cx="560" cy="120" r="11" fill="#fed7aa" class="pulse-marker" />
+                    <circle cx="560" cy="120" r="6" fill="#ea580c" />
+
+                    <!-- Present Perfect Title & Example Text -->
+                    <text x="420" y="38" font-size="15" fill="#ea580c" font-weight="900" text-anchor="middle" letter-spacing="0.5">PRESENT PERFECT</text>
+                    <text id="vsSvgDoneText" x="420" y="62" font-size="15" fill="#9a3412" font-weight="700" font-style="italic" text-anchor="middle">"I have done it."</text>
+
+                    <!-- ============================================== -->
+                    <!-- SIMPLE PAST PIN (Red Dot Isolated in Past)     -->
+                    <!-- ============================================== -->
+                    <!-- Past Pin Point -->
+                    <circle cx="280" cy="120" r="8" fill="#e11d48" stroke="#ffffff" stroke-width="2" />
+                    <line x1="280" y1="120" x2="280" y2="135" stroke="#e11d48" stroke-width="2.5" />
+
+                    <!-- Pointer line and text for Simple Past -->
+                    <line x1="230" y1="52" x2="274" y2="108" stroke="#e11d48" stroke-width="2" marker-end="url(#vs-pin-arrow)" />
+                    <text x="210" y="38" font-size="14" fill="#e11d48" font-weight="900" text-anchor="middle" letter-spacing="0.5">SIMPLE PAST</text>
+                    <text id="vsSvgDidText" x="210" y="58" font-size="14" fill="#9f1239" font-weight="700" font-style="italic" text-anchor="middle">"I did it."</text>
+
+                    <!-- Finish barrier / cut-off line (no link to present) -->
+                    <line x1="335" y1="105" x2="335" y2="135" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="3 3" />
+                    <text x="335" y="152" font-size="10" fill="#94a3b8" font-weight="600" text-anchor="middle">Finished here</text>
+
+                    <!-- ============================================== -->
+                    <!-- BRACKETS UNDERNEATH (Past & Future, as in sketch) -->
+                    <!-- ============================================== -->
+                    <!-- Green Bracket for PAST -->
+                    <path d="M 80 195 L 80 205 L 315 205 L 315 212 L 315 205 L 550 205 L 550 195" fill="none" stroke="#16a34a" stroke-width="2" />
+                    <text x="315" y="230" font-size="13" fill="#15803d" font-weight="800" text-anchor="middle">PAST</text>
+
+                    <!-- Blue Bracket for FUTURE -->
+                    <path d="M 570 195 L 570 205 L 675 205 L 675 212 L 675 205 L 780 205 L 780 195" fill="none" stroke="#2563eb" stroke-width="2" />
+                    <text x="675" y="230" font-size="13" fill="#1d4ed8" font-weight="800" text-anchor="middle">FUTURE</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Dynamic Side-by-Side Explanation Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <!-- Left: Simple Past Card -->
+            <div class="p-4 rounded-xl bg-rose-50 border-2 border-rose-200">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-700 flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+                        Simple Past: The Closed Door
+                    </span>
+                    <span class="text-[11px] font-semibold bg-rose-200 text-rose-900 px-2 py-0.5 rounded-full">Finished Time</span>
+                </div>
+                <div id="vsExplainPastExample" class="text-base sm:text-lg font-bold text-slate-900 mb-1">
+                    "I did it."
+                </div>
+                <p id="vsExplainPastDetail" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    The action was completed at a specific moment in the past. It is an isolated fact in history. It makes <strong>no claim</strong> about the present state.
+                </p>
+                <div class="mt-3 pt-3 border-t border-rose-200 text-xs font-semibold text-rose-800 flex items-center gap-1">
+                    <span>🚫 Key Rule:</span>
+                    <span id="vsPastRule">Use when time is stated or implied (yesterday, in 2020, ago).</span>
+                </div>
+            </div>
+
+            <!-- Right: Present Perfect Card -->
+            <div class="p-4 rounded-xl bg-orange-50 border-2 border-orange-200">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-orange-700 flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>
+                        Present Perfect: The Live Bridge
+                    </span>
+                    <span class="text-[11px] font-semibold bg-orange-200 text-orange-900 px-2 py-0.5 rounded-full">Reaches NOW</span>
+                </div>
+                <div id="vsExplainPerfExample" class="text-base sm:text-lg font-bold text-slate-900 mb-1">
+                    "I have done it."
+                </div>
+                <p id="vsExplainPerfDetail" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    Even though it started earlier, the <strong>result or importance exists right NOW</strong>. You are sharing this information because it matters to the present moment.
+                </p>
+                <div class="mt-3 pt-3 border-t border-orange-200 text-xs font-semibold text-orange-800 flex items-center gap-1">
+                    <span>✅ Key Rule:</span>
+                    <span id="vsPerfRule">Never attach a finished specific time like "yesterday" or "in 2019".</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- The "Golden Rule" Memory Card -->
+        <div class="mt-4 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">💡</span>
+                <div>
+                    <h4 class="text-sm font-bold text-amber-400">The 1-Second Deciding Test:</h4>
+                    <p class="text-xs text-slate-300 mt-0.5">
+                        Ask yourself: <em>"Does the speaker care about <strong>WHEN</strong> it happened, or <strong>THE FACT THAT IT MATTERS NOW</strong>?"</em><br>
+                        • If <strong>WHEN</strong> matters (or time is finished) → <span class="text-rose-300 font-bold">Simple Past</span>.<br>
+                        • If <strong>NOW</strong> matters (result/experience/still true) → <span class="text-orange-300 font-bold">Present Perfect</span>.
+                    </p>
+                </div>
+            </div>
+            <a href="#present-perfect" class="text-xs font-bold px-3 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg whitespace-nowrap text-center transition-colors">
+                Explore Deep Dive ↓
+            </a>
+        </div>
+    </section>
+
+    <div class="space-y-10">
+
+        <!-- ======================================================== -->
+        <!-- 1. SIMPLE PRESENT DEEP DIVE                              -->
+        <!-- ======================================================== -->
+        <section id="simple-present" class="tense-card theme-emerald bg-white rounded-2xl p-5 sm:p-7 shadow-md border-2 border-emerald-200">
+            <!-- Header -->
+            <div class="border-b border-emerald-100 pb-4 mb-5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span>🔍 Deep Dive</span>
+                        <span>•</span>
+                        <span>Base Verb / Verb + s/es</span>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Tense 1 of 5</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-700 mb-1">Simple Present</h2>
+                <p class="text-slate-600 text-sm sm:text-base font-medium">
+                    Things that are <span class="font-bold text-emerald-800">always true, regular habits</span>, or fixed schedules. It is not about this exact split second, but about what holds true in general.
+                </p>
+            </div>
+
+            <!-- Intuitive Comparison Box -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                    <div class="flex items-center gap-2 font-bold text-emerald-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                        Simple Present: General Routine / Fact
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-900 mb-1">
+                        "I drink coffee every morning."
+                    </p>
+                    <p class="text-xs text-slate-600">
+                        Does not mean I am drinking coffee right now. It describes my habitual life pattern.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-blue-700 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
+                        Contrast with Present Continuous
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-800 mb-1">
+                        "I am drinking coffee right now."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Active at this exact moment; I have a mug in my hand right now.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Scenario Tabs -->
+            <div class="mb-4">
+                <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">Select a scenario to view on timeline:</div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('simple-present', 'habits')" data-tab="habits" class="tab-btn active px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        1. Habits & Routines
+                    </button>
+                    <button onclick="switchTab('simple-present', 'facts')" data-tab="facts" class="tab-btn bg-white text-slate-700 hover:bg-emerald-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        2. Universal Facts / Truths
+                    </button>
+                    <button onclick="switchTab('simple-present', 'timetables')" data-tab="timetables" class="tab-btn bg-white text-slate-700 hover:bg-emerald-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        3. Fixed Timetables
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scenario Visualizations -->
+            <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-100">
+                <!-- 1. Habits -->
+                <div data-view="habits" class="scenario-view">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-emerald-900">Example: "I play tennis every Saturday."</span>
+                        <span class="text-slate-500 italic">Repeated pattern across Past, Present, and Future</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <!-- Timeline Base -->
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <text x="710" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Future</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Repeating Rhythm Dots -->
+                            <circle cx="180" cy="85" r="7" fill="#059669" />
+                            <circle cx="280" cy="85" r="7" fill="#059669" />
+                            <circle cx="380" cy="85" r="7" fill="#059669" />
+                            <circle cx="480" cy="85" r="7" fill="#059669" />
+                            <circle cx="580" cy="85" r="7" fill="#059669" />
+                            <circle cx="680" cy="85" r="7" fill="#059669" />
+
+                            <!-- Connecting Rhythm Arc -->
+                            <path d="M 180 85 Q 230 60 280 85 Q 330 60 380 85 Q 430 60 480 85 Q 530 60 580 85 Q 630 60 680 85" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4 3" opacity="0.6"/>
+
+                            <text x="380" y="115" font-size="12" fill="#047857" font-weight="bold" text-anchor="middle">Regular repeat cycle</text>
+                            <text x="680" y="115" font-size="12" fill="#047857" font-weight="bold" text-anchor="middle">Continues into future</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 2. Facts -->
+                <div data-view="facts" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-emerald-900">Example: "Water boils at 100°C."</span>
+                        <span class="text-slate-500 italic">A timeless truth that was, is, and always will be valid</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <text x="710" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Future</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Solid Eternal Band -->
+                            <rect x="80" y="77" width="640" height="16" rx="8" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+                            <text x="400" y="65" font-size="13" fill="#065f46" font-weight="bold" text-anchor="middle">∞ Permanent scientific fact (unbroken truth through all time) ∞</text>
+                            <text x="560" y="118" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">True today, yesterday, and forever</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. Timetables -->
+                <div data-view="timetables" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-emerald-900">Example: "The train leaves at 9:00 PM tonight."</span>
+                        <span class="text-slate-500 italic">Simple present used for official scheduled future events</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="em-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW (Speaking)</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Timetable pin in future -->
+                            <line x1="680" y1="85" x2="680" y2="55" stroke="#059669" stroke-width="3" />
+                            <circle cx="680" cy="55" r="9" fill="#059669" />
+                            <text x="680" y="40" font-size="13" fill="#065f46" font-weight="bold" text-anchor="middle">9:00 PM departure</text>
+                            <text x="680" y="115" font-size="12" fill="#047857" font-weight="bold" text-anchor="middle">Fixed on calendar / schedule</text>
+
+                            <!-- Link from now to departure -->
+                            <path d="M 565 80 Q 620 55 670 65" fill="none" stroke="#059669" stroke-width="2.5" stroke-dasharray="4 3" marker-end="url(#em-arrow)"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Hook -->
+            <div class="mt-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200 text-xs text-emerald-900 flex items-start gap-2">
+                <span class="text-base">💡</span>
+                <div>
+                    <strong>Quick Test:</strong> Ask: <em>"Is this a habit, a fact, or an official schedule?"</em><br/>
+                    • <em>"I work in banking."</em> (Simple Present → My permanent job).<br/>
+                    • <em>"I am working on a report."</em> (Present Continuous → What I am typing right now).
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- 2. SIMPLE PAST DEEP DIVE                                 -->
+        <!-- ======================================================== -->
+        <section id="simple-past" class="tense-card theme-rose bg-white rounded-2xl p-5 sm:p-7 shadow-md border-2 border-rose-200">
+            <!-- Header -->
+            <div class="border-b border-rose-100 pb-4 mb-5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="inline-flex items-center gap-2 bg-rose-100 text-rose-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span>🔍 Deep Dive</span>
+                        <span>•</span>
+                        <span>Verb + ed / Irregular (went, bought, did)</span>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Tense 2 of 5</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-rose-700 mb-1">Simple Past</h2>
+                <p class="text-slate-600 text-sm sm:text-base font-medium">
+                    The <span class="font-bold text-rose-800">"Closed Chapter"</span> tense. The action started, happened, and completely concluded in the past. There is zero overlap with Now.
+                </p>
+            </div>
+
+            <!-- Intuitive Comparison Box -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 rounded-xl bg-rose-50 border border-rose-200">
+                    <div class="flex items-center gap-2 font-bold text-rose-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-rose-600 inline-block"></span>
+                        Simple Past: Finished Time & Action
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-900 mb-1">
+                        "I lived in London for 3 years."
+                    </p>
+                    <p class="text-xs text-slate-600">
+                        Implies: <strong>I do NOT live in London today.</strong> It is a finished episode in my past history.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-orange-700 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-orange-500 inline-block"></span>
+                        Contrast with Present Perfect
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-800 mb-1">
+                        "I have lived in London for 3 years."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Implies: <strong>I still live in London right now today!</strong> The period is still open.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Scenario Tabs -->
+            <div class="mb-4">
+                <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">Select a scenario to view on timeline:</div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('simple-past', 'finished-point')" data-tab="finished-point" class="tab-btn active px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        1. Specific Time in Past
+                    </button>
+                    <button onclick="switchTab('simple-past', 'past-habit')" data-tab="past-habit" class="tab-btn bg-white text-slate-700 hover:bg-rose-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        2. Finished Past Habit (Used to)
+                    </button>
+                    <button onclick="switchTab('simple-past', 'story-sequence')" data-tab="story-sequence" class="tab-btn bg-white text-slate-700 hover:bg-rose-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        3. Sequence of Past Actions
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scenario Visualizations -->
+            <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-100">
+                <!-- 1. Specific Time Point -->
+                <div data-view="finished-point" class="scenario-view">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-rose-900">Example: "I visited Paris in 2022."</span>
+                        <span class="text-slate-500 italic">Clear time stamp; completely isolated from Now</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Past Point Pin -->
+                            <line x1="280" y1="85" x2="280" y2="52" stroke="#e11d48" stroke-width="3" />
+                            <circle cx="280" cy="52" r="9" fill="#e11d48" />
+                            <text x="280" y="38" font-size="13" fill="#be123c" font-weight="bold" text-anchor="middle">"in 2022"</text>
+                            <text x="280" y="112" font-size="12" fill="#be123c" font-weight="bold" text-anchor="middle">Completed action</text>
+
+                            <!-- Gap / Barrier to Now -->
+                            <rect x="360" y="75" width="130" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3 3"/>
+                            <text x="425" y="89" font-size="10" fill="#94a3b8" font-weight="bold" text-anchor="middle">Time gap (finished)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 2. Past Habit -->
+                <div data-view="past-habit" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-rose-900">Example: "I walked to school every day as a kid."</span>
+                        <span class="text-slate-500 italic">Repeated in the past, but completely stopped before today</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past (Childhood)</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Past routine cluster -->
+                            <circle cx="150" cy="85" r="6" fill="#e11d48" />
+                            <circle cx="210" cy="85" r="6" fill="#e11d48" />
+                            <circle cx="270" cy="85" r="6" fill="#e11d48" />
+                            <circle cx="330" cy="85" r="6" fill="#e11d48" />
+                            
+                            <!-- Stop wall -->
+                            <line x1="380" y1="65" x2="380" y2="105" stroke="#be123c" stroke-width="3" />
+                            <text x="240" y="60" font-size="12" fill="#be123c" font-weight="bold" text-anchor="middle">Habit repeated in childhood</text>
+                            <text x="440" y="60" font-size="11" fill="#64748b" font-weight="600" text-anchor="middle">🛑 Stopped long ago</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. Sequence of Actions -->
+                <div data-view="story-sequence" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-rose-900">Example: "He entered the room, turned on the light, and sat down."</span>
+                        <span class="text-slate-500 italic">Chronological step-by-step narrative in past</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="rose-step-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#e11d48" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Step 1 -->
+                            <circle cx="180" cy="85" r="8" fill="#e11d48" />
+                            <text x="180" y="55" font-size="11" fill="#be123c" font-weight="bold" text-anchor="middle">1. Entered</text>
+
+                            <path d="M 195 85 L 290 85" stroke="#e11d48" stroke-width="2.5" marker-end="url(#rose-step-arr)"/>
+
+                            <!-- Step 2 -->
+                            <circle cx="310" cy="85" r="8" fill="#e11d48" />
+                            <text x="310" y="55" font-size="11" fill="#be123c" font-weight="bold" text-anchor="middle">2. Turned light</text>
+
+                            <path d="M 325 85 L 420 85" stroke="#e11d48" stroke-width="2.5" marker-end="url(#rose-step-arr)"/>
+
+                            <!-- Step 3 -->
+                            <circle cx="440" cy="85" r="8" fill="#e11d48" />
+                            <text x="440" y="55" font-size="11" fill="#be123c" font-weight="bold" text-anchor="middle">3. Sat down</text>
+
+                            <text x="310" y="115" font-size="12" fill="#64748b" font-weight="bold" text-anchor="middle">All three completed sequentially before Now</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Hook -->
+            <div class="mt-4 p-3 bg-rose-50 rounded-lg border border-rose-200 text-xs text-rose-900 flex items-start gap-2">
+                <span class="text-base">💡</span>
+                <div>
+                    <strong>Quick Test:</strong> Does the sentence specify when in the past (e.g. <em>yesterday, in 2019, 5 minutes ago</em>)? If yes, use <strong>Simple Past</strong>! You cannot attach specific past times to Present Perfect.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- 3. PRESENT CONTINUOUS DEEP DIVE                          -->
+        <!-- ======================================================== -->
+        <section id="present-continuous" class="tense-card theme-blue bg-white rounded-2xl p-5 sm:p-7 shadow-md border-2 border-blue-200">
+            <!-- Header -->
+            <div class="border-b border-blue-100 pb-4 mb-5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span>🔍 Deep Dive</span>
+                        <span>•</span>
+                        <span>am / is / are + Verb-ing</span>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-700">Tense 3 of 5</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-700 mb-1">Present Continuous</h2>
+                <p class="text-slate-600 text-sm sm:text-base font-medium">
+                    The <span class="font-bold text-blue-800">"Live Camera"</span> tense. An action is actively in progress right now, or is a temporary situation happening around this time.
+                </p>
+            </div>
+
+            <!-- Intuitive Comparison Box -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 rounded-xl bg-blue-50 border border-blue-200">
+                    <div class="flex items-center gap-2 font-bold text-blue-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-blue-600 inline-block"></span>
+                        Present Continuous: Temporary / Dynamic
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-900 mb-1">
+                        "I am staying with my friend this week."
+                    </p>
+                    <p class="text-xs text-slate-600">
+                        Temporary situation; it started recently and will end soon.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-emerald-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                        Contrast with Simple Present
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-800 mb-1">
+                        "I live with my parents."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Permanent baseline truth; regular long-term living situation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Scenario Tabs -->
+            <div class="mb-4">
+                <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">Select a scenario to view on timeline:</div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('present-continuous', 'right-now')" data-tab="right-now" class="tab-btn active px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        1. Happening Right Now
+                    </button>
+                    <button onclick="switchTab('present-continuous', 'temporary-trend')" data-tab="temporary-trend" class="tab-btn bg-white text-slate-700 hover:bg-blue-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        2. Temporary Situation / Trend
+                    </button>
+                    <button onclick="switchTab('present-continuous', 'future-plans')" data-tab="future-plans" class="tab-btn bg-white text-slate-700 hover:bg-blue-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        3. Fixed Future Arrangement
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scenario Visualizations -->
+            <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-100">
+                <!-- 1. Right Now -->
+                <div data-view="right-now" class="scenario-view">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-blue-900">Example: "I am studying English right now."</span>
+                        <span class="text-slate-500 italic">The action is active at this exact instant</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Active Wave across NOW -->
+                            <path d="M 460 85 Q 485 62, 510 85 T 560 85 T 610 85 T 660 85" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+                            
+                            <!-- Concentric Pulse Ring on NOW -->
+                            <circle cx="560" cy="85" r="14" fill="#bfdbfe" class="pulse-marker" />
+                            <circle cx="560" cy="85" r="7" fill="#1d4ed8" />
+
+                            <text x="560" y="118" font-size="12" fill="#1e40af" font-weight="bold" text-anchor="middle">You are in the middle of it right now</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 2. Temporary Trend -->
+                <div data-view="temporary-trend" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-blue-900">Example: "He is looking for a new apartment this month."</span>
+                        <span class="text-slate-500 italic">Not necessarily happening at this second, but true for this short period</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Shaded Temporary Window -->
+                            <rect x="420" y="70" width="230" height="30" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                            <text x="535" y="60" font-size="12" fill="#1e40af" font-weight="bold" text-anchor="middle">"This Month" (Temporary Window)</text>
+                            
+                            <!-- Continuous Wave inside the window -->
+                            <path d="M 440 85 Q 465 72, 490 85 T 540 85 T 590 85 T 630 85" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="560" cy="85" r="5" fill="#1d4ed8"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. Future Plans -->
+                <div data-view="future-plans" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-blue-900">Example: "I am having dinner with Sarah tomorrow."</span>
+                        <span class="text-slate-500 italic">Personal arrangement already finalized today in my calendar</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="blue-plan-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW (Arranged)</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Arc to tomorrow -->
+                            <path d="M 565 80 Q 625 40 680 75" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#blue-plan-arr)"/>
+                            <circle cx="685" cy="85" r="8" fill="#2563eb"/>
+                            <text x="685" y="112" font-size="12" fill="#1e40af" font-weight="bold" text-anchor="middle">Tomorrow's dinner</text>
+                            <text x="625" y="45" font-size="11" fill="#2563eb" font-weight="bold" text-anchor="middle">Arrangement locked in</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Hook -->
+            <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200 text-xs text-blue-900 flex items-start gap-2">
+                <span class="text-base">💡</span>
+                <div>
+                    <strong>Quick Test:</strong> Imagine looking through a live phone camera. If you can see the person in motion doing the activity right now, use <strong>Present Continuous</strong>!
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- 4. PAST CONTINUOUS DEEP DIVE                             -->
+        <!-- ======================================================== -->
+        <section id="past-continuous" class="tense-card theme-cyan bg-white rounded-2xl p-5 sm:p-7 shadow-md border-2 border-cyan-200">
+            <!-- Header -->
+            <div class="border-b border-cyan-100 pb-4 mb-5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span>🔍 Deep Dive</span>
+                        <span>•</span>
+                        <span>was / were + Verb-ing</span>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-cyan-700">Tense 4 of 5</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-cyan-700 mb-1">Past Continuous</h2>
+                <p class="text-slate-600 text-sm sm:text-base font-medium">
+                    The <span class="font-bold text-cyan-800">"Background Scene"</span> tense. Describes an ongoing action in progress at a specific moment in the past, often interrupted by another event.
+                </p>
+            </div>
+
+            <!-- Intuitive Comparison Box -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 rounded-xl bg-cyan-50 border border-cyan-200">
+                    <div class="flex items-center gap-2 font-bold text-cyan-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-cyan-600 inline-block"></span>
+                        Past Continuous + Simple Past
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-900 mb-1">
+                        "I was taking a shower when the phone rang."
+                    </p>
+                    <p class="text-xs text-slate-600">
+                        Shower = ongoing background wave. Phone ringing = sudden sharp interruption.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-rose-800 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                        Contrast with Two Simple Pasts
+                    </div>
+                    <p class="text-sm font-semibold italic text-slate-800 mb-1">
+                        "When the phone rang, I answered it."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Consecutive actions: first the phone rang, and then I picked it up.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Scenario Tabs -->
+            <div class="mb-4">
+                <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">Select a scenario to view on timeline:</div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('past-continuous', 'interrupted')" data-tab="interrupted" class="tab-btn active px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        1. Interrupted Past Action
+                    </button>
+                    <button onclick="switchTab('past-continuous', 'parallel')" data-tab="parallel" class="tab-btn bg-white text-slate-700 hover:bg-cyan-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        2. Two Parallel Actions (While)
+                    </button>
+                    <button onclick="switchTab('past-continuous', 'exact-time')" data-tab="exact-time" class="tab-btn bg-white text-slate-700 hover:bg-cyan-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        3. Specific Past Snapshot (At 8 PM)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scenario Visualizations -->
+            <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-100">
+                <!-- 1. Interrupted Action -->
+                <div data-view="interrupted" class="scenario-view">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-cyan-900">Example: "I was studying when my friend arrived."</span>
+                        <span class="text-slate-500 italic">Wave = ongoing action; Pin = interrupting event (Simple Past)</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="cyan-down-arr" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 5 10 L 10 0 z" fill="#e11d48" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Ongoing wave in past -->
+                            <path d="M 160 85 Q 190 62, 220 85 T 280 85 T 340 85 T 400 85" fill="none" stroke="#0891b2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+                            <text x="240" y="55" font-size="12" fill="#0e7490" font-weight="bold" text-anchor="middle">"was studying" (ongoing)</text>
+
+                            <!-- Sudden interruption pin -->
+                            <line x1="330" y1="35" x2="330" y2="78" stroke="#e11d48" stroke-width="3" marker-end="url(#cyan-down-arr)" />
+                            <circle cx="330" cy="35" r="5" fill="#e11d48" />
+                            <text x="330" y="24" font-size="12" fill="#be123c" font-weight="bold" text-anchor="middle">"friend arrived" (Interruption)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 2. Parallel Actions -->
+                <div data-view="parallel" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-cyan-900">Example: "While I was cooking, my sister was doing homework."</span>
+                        <span class="text-slate-500 italic">Two ongoing continuous actions running side by side</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Top Wave -->
+                            <path d="M 200 65 Q 230 45, 260 65 T 320 65 T 380 65" fill="none" stroke="#0891b2" stroke-width="5" stroke-linecap="round"/>
+                            <text x="290" y="42" font-size="11" fill="#0e7490" font-weight="bold" text-anchor="middle">Action 1: was cooking</text>
+
+                            <!-- Bottom Wave -->
+                            <path d="M 200 95 Q 230 75, 260 95 T 320 95 T 380 95" fill="none" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
+                            <text x="290" y="118" font-size="11" fill="#0369a1" font-weight="bold" text-anchor="middle">Action 2: was doing homework</text>
+                            
+                            <text x="440" y="80" font-size="12" fill="#64748b" font-weight="600">Simultaneous (While...)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. Exact Time Snapshot -->
+                <div data-view="exact-time" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-cyan-900">Example: "At 8:00 PM yesterday, I was watching a film."</span>
+                        <span class="text-slate-500 italic">Looking directly into the middle of an in-progress past event</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Film duration wave (7:30 to 9:30) -->
+                            <path d="M 200 85 Q 230 65, 260 85 T 320 85 T 380 85 T 440 85" fill="none" stroke="#0891b2" stroke-width="6" stroke-linecap="round"/>
+
+                            <!-- Snapshot vertical cursor at 8:00 PM -->
+                            <line x1="320" y1="45" x2="320" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="2 2" />
+                            <circle cx="320" cy="85" r="6" fill="#0891b2" stroke="#ffffff" stroke-width="2"/>
+                            <text x="320" y="38" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">📸 Exactly 8:00 PM</text>
+                            <text x="320" y="120" font-size="11" fill="#0e7490" font-weight="bold" text-anchor="middle">Movie already started, not yet finished</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Hook -->
+            <div class="mt-4 p-3 bg-cyan-50 rounded-lg border border-cyan-200 text-xs text-cyan-900 flex items-start gap-2">
+                <span class="text-base">💡</span>
+                <div>
+                    <strong>Quick Test:</strong> Was the action like a movie playing in the background (<em>"I was walking"</em>) when a sudden photo snap clicked (<em>"I slipped"</em>)? Background = <strong>Past Continuous</strong>, Snapshot = <strong>Simple Past</strong>.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- 5. PRESENT PERFECT DEEP DIVE                             -->
+        <!-- ======================================================== -->
+        <section id="present-perfect" class="tense-card theme-orange bg-white rounded-2xl p-5 sm:p-7 shadow-md border-2 border-orange-200">
+            <!-- Header -->
+            <div class="border-b border-orange-100 pb-4 mb-5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span>🔍 Deep Dive</span>
+                        <span>•</span>
+                        <span>have / has + past participle (V3)</span>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-orange-700">Tense 5 of 5</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-orange-600 mb-1">Present Perfect</h2>
+                <p class="text-slate-600 text-sm sm:text-base font-medium">
+                    The <span class="font-bold text-orange-700">"Live Bridge"</span> tense. Why is it called "Present" if the action began earlier? Because its <span class="font-bold underline decoration-orange-400">result, impact, or life experience belongs strictly to NOW</span>.
+                </p>
+            </div>
+
+            <!-- Intuitive Comparison Box -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-rose-700 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                        Simple Past: "The Closed Book"
+                    </div>
+                    <p class="text-sm text-slate-800 font-semibold italic mb-1">
+                        "I lost my keys yesterday."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Historical report. Do I have them now? Maybe I found them an hour ago, maybe not. The sentence doesn't guarantee current state.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-orange-50 border border-orange-200">
+                    <div class="flex items-center gap-2 font-bold text-orange-700 mb-1 text-sm">
+                        <span class="w-3 h-3 rounded-full bg-orange-500 inline-block"></span>
+                        Present Perfect: "The Live Bridge to Now"
+                    </div>
+                    <p class="text-sm text-slate-900 font-semibold italic mb-1">
+                        "I have lost my keys!"
+                    </p>
+                    <p class="text-xs text-slate-600">
+                        The real message is: <strong class="text-orange-950">"I don't have them right now, so I'm locked out outside!"</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Scenario Tabs -->
+            <div class="mb-4">
+                <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">Select a scenario to view on timeline:</div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('present-perfect', 'result')" data-tab="result" class="tab-btn active px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        1. Past Action → Current Result
+                    </button>
+                    <button onclick="switchTab('present-perfect', 'experience')" data-tab="experience" class="tab-btn bg-white text-slate-700 hover:bg-orange-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        2. Life Experience Up to Now
+                    </button>
+                    <button onclick="switchTab('present-perfect', 'duration')" data-tab="duration" class="tab-btn bg-white text-slate-700 hover:bg-orange-50 px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-sm font-semibold transition-colors">
+                        3. Ongoing into Now (Since/For)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scenario Visualizations -->
+            <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-100">
+                <!-- 1. Result Now -->
+                <div data-view="result" class="scenario-view">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-orange-800">Example: "I have broken my glasses."</span>
+                        <span class="text-slate-500 italic">Result right now: Can't see clearly at this exact moment</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="pp-arrow-res" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#f97316" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Past Event -->
+                            <circle cx="280" cy="85" r="7" fill="#ea580c" />
+                            <text x="280" y="112" font-size="12" fill="#c2410c" font-weight="bold" text-anchor="middle">Broke in past</text>
+
+                            <!-- Arc Bridge to Now -->
+                            <path d="M 285 80 Q 420 20, 550 78" fill="none" stroke="#ea580c" stroke-width="3.5" marker-end="url(#pp-arrow-res)" />
+                            <text x="415" y="42" font-size="13" fill="#ea580c" font-weight="bold" text-anchor="middle">Direct impact / consequence alive in...</text>
+
+                            <!-- State at Now -->
+                            <circle cx="560" cy="85" r="8" fill="#ea580c" />
+                            <text x="560" y="122" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">"Glasses are broken right now"</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 2. Experience -->
+                <div data-view="experience" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-orange-800">Example: "I have visited Japan twice."</span>
+                        <span class="text-slate-500 italic">Timeline = My open life experience up to this moment</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past (Birth)</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Shaded Open Lifetime -->
+                            <rect x="150" y="75" width="410" height="20" fill="#ffedd5" rx="10" opacity="0.85" />
+                            <text x="355" y="65" font-size="12" fill="#c2410c" font-weight="600" text-anchor="middle">Open period: Experiences accumulated in memory</text>
+
+                            <!-- Trips -->
+                            <circle cx="260" cy="85" r="7" fill="#ea580c" />
+                            <text x="260" y="112" font-size="12" fill="#c2410c" font-weight="bold" text-anchor="middle">1st trip</text>
+
+                            <circle cx="430" cy="85" r="7" fill="#ea580c" />
+                            <text x="430" y="112" font-size="12" fill="#c2410c" font-weight="bold" text-anchor="middle">2nd trip</text>
+
+                            <circle cx="560" cy="85" r="8" fill="#ea580c" />
+                            <text x="560" y="122" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">Total: 2 trips in my life so far</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. Duration -->
+                <div data-view="duration" class="scenario-view hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm mb-3 gap-1">
+                        <span class="font-bold text-orange-800">Example: "I have lived here for 10 years."</span>
+                        <span class="text-slate-500 italic">Started in the past, still living here today!</span>
+                    </div>
+                    <div class="w-full overflow-hidden">
+                        <svg viewBox="0 0 800 130" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                            <line x1="50" y1="85" x2="750" y2="85" stroke="#cbd5e1" stroke-width="3" />
+                            <polygon points="40,85 50,80 50,90" fill="#cbd5e1" />
+                            <polygon points="760,85 750,80 750,90" fill="#cbd5e1" />
+                            
+                            <text x="100" y="30" font-size="14" fill="#64748b" font-weight="600" text-anchor="middle">Past (2016)</text>
+                            <text x="560" y="30" font-size="16" fill="#0f172a" font-weight="800" text-anchor="middle">NOW</text>
+                            <line x1="560" y1="40" x2="560" y2="105" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+                            <!-- Unbroken duration bar -->
+                            <line x1="220" y1="85" x2="560" y2="85" stroke="#ea580c" stroke-width="8" stroke-linecap="round" />
+                            <circle cx="220" cy="85" r="7" fill="#c2410c" />
+                            <text x="220" y="112" font-size="12" fill="#c2410c" font-weight="bold" text-anchor="middle">Moved in (start point)</text>
+
+                            <text x="390" y="65" font-size="13" fill="#ea580c" font-weight="bold" text-anchor="middle">Unbroken 10-year span connecting to NOW</text>
+
+                            <circle cx="560" cy="85" r="9" fill="#ea580c" />
+                            <polygon points="562,85 575,80 575,90" fill="#ea580c" opacity="0.6"/>
+                            <text x="560" y="122" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">Still resident right now</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Hook -->
+            <div class="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200 text-xs text-amber-900 flex items-start gap-2">
+                <span class="text-base">💡</span>
+                <div>
+                    <strong>Quick Test:</strong> Ask yourself: <em>"Does the speaker care about WHEN it happened, or the FACT that it matters right now?"</em> If it directly affects the present moment, choose <strong>Present Perfect</strong>!
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================== -->
+        <!-- SUMMARY CHEAT SHEET TABLE                                -->
+        <!-- ======================================================== -->
+        <section class="bg-white rounded-2xl p-5 sm:p-7 shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span>⚡</span> Quick Master Comparison Table
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm">
+                    <thead>
+                        <tr class="border-b border-slate-200 bg-slate-50 text-slate-600 font-semibold">
+                            <th class="p-3">Tense</th>
+                            <th class="p-3">Core Meaning</th>
+                            <th class="p-3">Time Marker Clues</th>
+                            <th class="p-3">Mental Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold text-emerald-600">Simple Present</td>
+                            <td class="p-3">Habit, universal fact, schedule</td>
+                            <td class="p-3">always, usually, every day, at 8:00</td>
+                            <td class="p-3">Rhythmic heartbeat or eternal law</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-rose-600">Simple Past</td>
+                            <td class="p-3">Finished action at a past time</td>
+                            <td class="p-3">yesterday, in 2020, ago, last night</td>
+                            <td class="p-3">Closed photo album / sealed box</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-blue-600">Present Continuous</td>
+                            <td class="p-3">In progress right now or temporary</td>
+                            <td class="p-3">right now, at the moment, currently</td>
+                            <td class="p-3">Live camera streaming right now</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-cyan-600">Past Continuous</td>
+                            <td class="p-3">In progress at a past point (interrupted)</td>
+                            <td class="p-3">while, as, when, at 8 PM yesterday</td>
+                            <td class="p-3">Background music interrupted by lightning</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-orange-600">Present Perfect</td>
+                            <td class="p-3">Past action with relevance / result NOW</td>
+                            <td class="p-3">already, just, never, since, for</td>
+                            <td class="p-3">Solid bridge connecting past directly to NOW</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-400 mt-10 pb-4">
+        Interactive English Tenses Visual Guide • Designed for intuitive visual learners.
+    </footer>
+</div>
+
+<script>
+    /**
+     * Data pairs for the Simple Past vs Present Perfect Showdown
+     */
+    const vsPairs = {
+        'did-done': {
+            didText: '"I did it."',
+            doneText: '"I have done it."',
+            pastExample: '"I did it."',
+            pastDetail: 'Report of a completed deed in the past. It looks backward at the moment the deed happened.',
+            pastRule: 'Specific finished time in past (e.g., "I did it this morning at 9am").',
+            perfExample: '"I have done it!"',
+            perfDetail: 'Celebrates the current state right now: the work is finished, off my shoulders, and ready for you today.',
+            perfRule: 'Speaks to the current outcome (e.g., "I have done it, here is the file!").'
+        },
+        'keys': {
+            didText: '"I lost my keys yesterday."',
+            doneText: '"I have lost my keys!"',
+            pastExample: '"I lost my keys yesterday."',
+            pastDetail: 'A historical story. Did I find them an hour later? Maybe! The sentence doesn\'t say if I am still missing them today.',
+            pastRule: 'Specifies when it happened ("yesterday", "last night").',
+            perfExample: '"I have lost my keys!"',
+            perfDetail: 'Current crisis: I don\'t have them in my pocket right now! I am locked outside at this exact second.',
+            perfRule: 'Directly impacts the present moment (Can\'t enter the house now).'
+        },
+        'london': {
+            didText: '"I lived in London for 3 years."',
+            doneText: '"I have lived in London for 3 years."',
+            pastExample: '"I lived in London for 3 years."',
+            pastDetail: 'Closed chapter: I lived there in the past, but I do NOT live in London today. I moved away.',
+            pastRule: 'The period of living there has completely ended.',
+            perfExample: '"I have lived in London for 3 years."',
+            perfDetail: 'Open bridge: I started living there 3 years ago, and I STILL live in London today as I say this!',
+            perfRule: 'The action began in the past and continues right through into NOW.'
+        },
+        'paris': {
+            didText: '"I visited Paris in 2022."',
+            doneText: '"I have visited Paris twice."',
+            pastExample: '"I visited Paris in 2022."',
+            pastDetail: 'Tied to a specific finished calendar year (2022). It is a pinpoint memory on a past page.',
+            pastRule: 'Must use Simple Past with closed time anchors ("in 2022").',
+            perfExample: '"I have visited Paris twice."',
+            perfDetail: 'Part of my living resume and life experiences up to this present moment. I might visit again!',
+            perfRule: 'Life experience accumulated up to today (use "ever", "never", "twice").'
+        }
+    };
+
+    /**
+     * Switch between the comparison pairs
+     */
+    function selectVsPair(pairKey) {
+        const data = vsPairs[pairKey];
+        if (!data) return;
+
+        // Update button styles
+        document.querySelectorAll('.vs-pair-btn').forEach(btn => {
+            btn.classList.remove('border-amber-500', 'bg-amber-50', 'text-amber-900', 'border-2', 'shadow-sm');
+            btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+        });
+
+        const activeBtn = document.getElementById(`vsBtn-${pairKey}`);
+        if (activeBtn) {
+            activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+            activeBtn.classList.add('border-amber-500', 'bg-amber-50', 'text-amber-900', 'border-2', 'shadow-sm');
+        }
+
+        // Update SVG texts
+        const svgDid = document.getElementById('vsSvgDidText');
+        const svgDone = document.getElementById('vsSvgDoneText');
+        if (svgDid) svgDid.textContent = data.didText;
+        if (svgDone) svgDone.textContent = data.doneText;
+
+        // Update card explanations
+        document.getElementById('vsExplainPastExample').textContent = data.pastExample;
+        document.getElementById('vsExplainPastDetail').innerHTML = data.pastDetail;
+        document.getElementById('vsPastRule').textContent = data.pastRule;
+
+        document.getElementById('vsExplainPerfExample').textContent = data.perfExample;
+        document.getElementById('vsExplainPerfDetail').innerHTML = data.perfDetail;
+        document.getElementById('vsPerfRule').textContent = data.perfRule;
+    }
+
+    /**
+     * Unified Tab Switcher function for all tenses
+     * @param {string} sectionId - The ID of the parent section
+     * @param {string} tabName - The name of the data-tab / data-view
+     */
+    function switchTab(sectionId, tabName) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        // Reset all buttons in this section
+        const buttons = section.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.add('bg-white', 'text-slate-700');
+        });
+
+        // Activate the clicked button
+        const activeBtn = section.querySelector(`[data-tab="${tabName}"]`);
+        if (activeBtn) {
+            activeBtn.classList.remove('bg-white', 'text-slate-700');
+            activeBtn.classList.add('active');
+        }
+
+        // Hide all views in this section
+        const views = section.querySelectorAll('.scenario-view');
+        views.forEach(v => v.classList.add('hidden'));
+
+        // Show matching view
+        const activeView = section.querySelector(`[data-view="${tabName}"]`);
+        if (activeView) {
+            activeView.classList.remove('hidden');
+        }
+    }
+</script>
+
+</body>
+</html>
